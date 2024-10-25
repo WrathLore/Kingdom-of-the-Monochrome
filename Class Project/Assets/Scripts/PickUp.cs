@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    //for location of the objects to pickup, could potentially randomize it
+    //make it within a certain area, but random every time on Start
     [SerializeField] Player player;
     [SerializeField] GameObject item;
     //use this to pick up quest items and the like
