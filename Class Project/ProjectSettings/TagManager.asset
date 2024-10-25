@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Start
+  - Quit
+  - Tutorial
+  - Rules
+  - Options
+  - Blue Maiden
+  - Blue Lamb
+  - Blue Devout
+  - Blue Fairy
+  - Blue Unique
+  - Red Maiden
+  - Red Lamb
+  - Red Devout
+  - Red Fairy
+  - Red Unique
+  - Green Maiden
+  - Green Lamb
+  - Green Devout
+  - Green Fairy
+  - Green Unique
+  - Door
+  - Red Lamb Quest
+  - Red Lamb Fight
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Background
+  - Water
+  - UI
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 634191663
+    locked: 0
+  - name: Creatures
+    uniqueID: 620936279
+    locked: 0
+  - name: Player
+    uniqueID: 2166133077
+    locked: 0
+  - name: Foreground
+    uniqueID: 1441027553
+    locked: 0
