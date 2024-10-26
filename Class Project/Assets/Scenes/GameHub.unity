@@ -2503,6 +2503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FightHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 5419762196998591346, guid: da0a71e1cf555c349876f705dd360d95, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

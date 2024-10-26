@@ -376,6 +376,7 @@ public class Player : MonoBehaviour
     {
         if(isDead)
         {
+            PlayerInputController.inFight = false;//if died in fight, make this false so that you can move again once level restarts
             actionTaken = "Waiting for input...";
             Creature.actionTaken = "Waiting for first move...";
             if(dodgeCount > 0)
