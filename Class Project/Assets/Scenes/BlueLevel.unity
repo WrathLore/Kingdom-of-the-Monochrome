@@ -235,9 +235,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 630748364}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: accept
+      value: 
+      objectReference: {fileID: 1474707511}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1798530668}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731460245}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: turnIn
+      value: 
+      objectReference: {fileID: 1474707510}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: charText
       value: 
       objectReference: {fileID: 616907227}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 518046298}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1474707507}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: questGiver
+      value: 
+      objectReference: {fileID: 518046296}
     - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: fightButton
       value: 
@@ -246,6 +278,10 @@ PrefabInstance:
       propertyPath: questButton
       value: 
       objectReference: {fileID: 616907225}
+    - target: {fileID: -1903541917297304579, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1474707509}
     - target: {fileID: -1236721641034158470, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: block
       value: 20
@@ -373,6 +409,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae860fa04bf028043a1f227adf3124ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &518046298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+  m_PrefabInstance: {fileID: 518046295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518046296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc98f22417a3e544bcfc780fdd0157e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &573892149 stripped
@@ -1606,9 +1653,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 630748364}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: accept
+      value: 
+      objectReference: {fileID: 1474707511}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1798530668}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731460245}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: turnIn
+      value: 
+      objectReference: {fileID: 1474707510}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
       propertyPath: charText
       value: 
       objectReference: {fileID: 616907227}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 1168545182}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1474707507}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: questGiver
+      value: 
+      objectReference: {fileID: 1168545180}
     - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
       propertyPath: fightButton
       value: 
@@ -1617,6 +1696,10 @@ PrefabInstance:
       propertyPath: questButton
       value: 
       objectReference: {fileID: 616907225}
+    - target: {fileID: -3802964610538447066, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1474707509}
     - target: {fileID: 2350991998915023788, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
       propertyPath: m_Name
       value: Blue Maiden
@@ -1744,6 +1827,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae860fa04bf028043a1f227adf3124ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1168545182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8379866695824130929, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+  m_PrefabInstance: {fileID: 1168545179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168545180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc98f22417a3e544bcfc780fdd0157e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1187461216
@@ -2012,9 +2106,41 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 630748364}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: accept
+      value: 
+      objectReference: {fileID: 1474707511}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1798530668}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731460245}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: turnIn
+      value: 
+      objectReference: {fileID: 1474707510}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
       propertyPath: charText
       value: 
       objectReference: {fileID: 616907227}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 1616960308}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1474707507}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: questGiver
+      value: 
+      objectReference: {fileID: 1616960306}
     - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
       propertyPath: fightButton
       value: 
@@ -2023,6 +2149,10 @@ PrefabInstance:
       propertyPath: questButton
       value: 
       objectReference: {fileID: 616907225}
+    - target: {fileID: 4232316519724587182, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1474707509}
     - target: {fileID: 6518428878370381876, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.5
@@ -2146,6 +2276,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae860fa04bf028043a1f227adf3124ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1616960308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7888748975854883217, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+  m_PrefabInstance: {fileID: 1616960305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616960306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc98f22417a3e544bcfc780fdd0157e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1696893329
@@ -2497,9 +2638,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 616907219}
     - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 630748364}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: accept
+      value: 
+      objectReference: {fileID: 1474707511}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1798530668}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731460245}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: turnIn
+      value: 
+      objectReference: {fileID: 1474707510}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
       propertyPath: charText
       value: 
       objectReference: {fileID: 616907227}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 1791198311}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1474707507}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: questGiver
+      value: 
+      objectReference: {fileID: 1791198309}
     - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
       propertyPath: fightButton
       value: 
@@ -2508,6 +2681,10 @@ PrefabInstance:
       propertyPath: questButton
       value: 
       objectReference: {fileID: 616907225}
+    - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1474707509}
     - target: {fileID: 3782568148260992181, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
       propertyPath: block
       value: 4
@@ -2587,6 +2764,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae860fa04bf028043a1f227adf3124ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1791198311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1585101472802546919, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+  m_PrefabInstance: {fileID: 1791198308}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791198309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc98f22417a3e544bcfc780fdd0157e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1798530668 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5560566140882823387, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 967217763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616907226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1915294220
@@ -2702,9 +2901,41 @@ PrefabInstance:
       value: Blue Lamb Cleric
       objectReference: {fileID: 0}
     - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 630748364}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: accept
+      value: 
+      objectReference: {fileID: 1474707511}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1798530668}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1731460245}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: turnIn
+      value: 
+      objectReference: {fileID: 1474707510}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
       propertyPath: charText
       value: 
       objectReference: {fileID: 616907227}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: creature
+      value: 
+      objectReference: {fileID: 1915294223}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 1474707507}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: questGiver
+      value: 
+      objectReference: {fileID: 1915294221}
     - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
       propertyPath: fightButton
       value: 
@@ -2713,6 +2944,10 @@ PrefabInstance:
       propertyPath: questButton
       value: 
       objectReference: {fileID: 616907225}
+    - target: {fileID: 4917107905248496806, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1474707509}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2732,6 +2967,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae860fa04bf028043a1f227adf3124ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1915294223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 949110732752909774, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+  m_PrefabInstance: {fileID: 1915294220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915294221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc98f22417a3e544bcfc780fdd0157e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1965348469
