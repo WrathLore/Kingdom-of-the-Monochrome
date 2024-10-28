@@ -20,6 +20,7 @@ public class BlueUnique : MonoBehaviour
     //[SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
+    int track = 0;
     [Header("Writing")]
     [SerializeField] string text = "A giant snake lays curled up before you, blocking the only way out. The subtle movement of its body suggests it has already noticed you and is prepared for anything that comes next.";
     [SerializeField] string quest = "Pay attention to its body language.";//notice it tastes the air and keeps darting minutely towards any small rodents that scury past
@@ -48,22 +49,32 @@ public class BlueUnique : MonoBehaviour
                 {
                     button.onClick.AddListener(Quest);
                 }
-                if(accept != null)
-                {
-                    accept.onClick.AddListener(Change);
-                }
+               
             }
-        }
-    }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
             if(startedQuest)
             {
-                creature.choice.SetActive(false);
+                Player.inQuest = true;
+                d.SetName(creature.creatureName);
+                if(track == 0)
+                {
+
+                }
+                else if(track == 1)
+                {
+
+                }
+                else if(track == 2)
+                {
+                    
+                }
+
             }
+            if(accept != null)
+            {
+                accept.onClick.AddListener(Change);
+            }
+            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
@@ -82,6 +93,8 @@ public class BlueUnique : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
           
         }
     }
@@ -89,12 +102,23 @@ public class BlueUnique : MonoBehaviour
 
     public void Quest()
     {
-        
+        track = 0;
+        creature.choice.SetActive(false);
+        startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
+        Player.inQuest = true;
+        creature.interactedWith = true;
+        d.SetName(creature.creatureName);
     }
 
     public void Change()
     {
+        track = 1;
 
+    }
+
+    public void TurnIn()
+    {
+        track = 2;
     }
 
     public void SetName(string name)

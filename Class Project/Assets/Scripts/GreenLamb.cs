@@ -20,6 +20,7 @@ public class GreenLamb : MonoBehaviour
     //[SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
+    int track = 0;
     [Header("Writing")]
     [SerializeField] string text = "A cleric paces back and forth, grumbling under their breath. A shattered tile sits behind them, the pieces messed up and out of order. They seem very irritated, likely to lash out if you aren't careful.";
     [SerializeField] string quest = "Offer to sort out the tile pieces";//mix and match puzzle, or if too hard to code, another fetch quest
@@ -48,22 +49,32 @@ public class GreenLamb : MonoBehaviour
                 {
                     button.onClick.AddListener(Quest);
                 }
-                if(accept != null)
-                {
-                    accept.onClick.AddListener(Change);
-                }
+                
             }
-        }
-    }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
             if(startedQuest)
             {
-                creature.choice.SetActive(false);
+                Player.inQuest = true;
+                d.SetName(creature.creatureName);
+                if(track == 0)
+                {
+
+                }
+                else if(track == 1)
+                {
+
+                }
+                else if(track == 2)
+                {
+                    
+                }
+
             }
+            if(accept != null)
+            {
+                accept.onClick.AddListener(Change);
+            }
+            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
@@ -82,6 +93,8 @@ public class GreenLamb : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
           
         }
     }
@@ -89,12 +102,27 @@ public class GreenLamb : MonoBehaviour
 
     public void Quest()
     {
+        track = 0;
+        //have a puzzle set up, grey pops into existence
+        //have to layer the colored pieces on top to finish the puzzle
+        //once done, then can have the finished puzzle
+        creature.choice.SetActive(false);
+        startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
+        Player.inQuest = true;
+        creature.interactedWith = true;
+        d.SetName(creature.creatureName);
         
     }
 
     public void Change()
     {
+        track = 1;
 
+    }
+
+    public void TurnIn()
+    {
+        track = 2;
     }
 
     public void SetName(string name)

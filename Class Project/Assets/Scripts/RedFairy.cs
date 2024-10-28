@@ -20,6 +20,7 @@ public class RedFairy : MonoBehaviour
     //[SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
+    int track = 0;
     [Header("Writing")]
     [SerializeField] string text = "A fairy flits from bush to bush, looking for the ripest amongst the fruits. Any path forward is impossible to see as the fairy grows and shrinks the plants around you. They do not seem intent on stopping until their basket is full.";
     [SerializeField] string quest = "Aid the fairy in their task";//collect a certain number of berries(maybe in a time limit)
@@ -48,26 +49,36 @@ public class RedFairy : MonoBehaviour
                 {
                     button.onClick.AddListener(Quest);
                 }
-                if(accept != null)
-                {
-                    accept.onClick.AddListener(Change);
-                }
+               
             }
-        }
-    }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
             if(startedQuest)
             {
-                creature.choice.SetActive(false);
+                Player.inQuest = true;
+                d.SetName(creature.creatureName);
+                if(track == 0)
+                {
+
+                }
+                else if(track == 1)
+                {
+
+                }
+                else if(track == 2)
+                {
+                    
+                }
+
             }
+            if(accept != null)
+            {
+                accept.onClick.AddListener(Change);
+            }
+            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+   void OnTriggerExit2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
@@ -82,6 +93,8 @@ public class RedFairy : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
           
         }
     }
@@ -89,12 +102,24 @@ public class RedFairy : MonoBehaviour
 
     public void Quest()
     {
+        track = 0;
+        creature.choice.SetActive(false);
+        startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
+        Player.inQuest = true;
+        creature.interactedWith = true;
+        d.SetName(creature.creatureName);
         
     }
 
     public void Change()
     {
+        track = 1;
 
+    }
+
+    public void TurnIn()
+    {
+        track = 2;
     }
 
     public void SetName(string name)

@@ -20,6 +20,7 @@ public class RedDevout : MonoBehaviour
     //[SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
+    int track = 0;
     [Header("Writing")]
     [SerializeField] string text = "The tapping of a cane can be heard as a crone hobbles down the path. She seems to be close to tipping over, but holds her cane with a strength unbefitting to her exterior. As you go to pass her, she suddenly tips over as her cane goes flying.";
     [SerializeField] string quest = "Help the woman to her feet";//look for the cane, easy quest
@@ -47,22 +48,32 @@ public class RedDevout : MonoBehaviour
                 {
                     button.onClick.AddListener(Quest);
                 }
-                if(accept != null)
-                {
-                    accept.onClick.AddListener(Change);
-                }
+        
             }
-        }
-    }
 
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
             if(startedQuest)
             {
-                creature.choice.SetActive(false);
+                Player.inQuest = true;//if start 2 quests at once, then inQuest is set to false when completing one and unable to talk to other again
+                d.SetName(creature.creatureName);
+                if(track == 0)
+                {
+
+                }
+                else if(track == 1)
+                {
+
+                }
+                else if(track == 2)
+                {
+                    
+                }
             }
+
+            if(accept != null)
+            {
+                accept.onClick.AddListener(Change);
+            }
+            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
@@ -81,6 +92,8 @@ public class RedDevout : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
           
         }
     }
@@ -88,11 +101,23 @@ public class RedDevout : MonoBehaviour
 
     public void Quest()
     {
-        
+        track = 0;
+        creature.choice.SetActive(false);
+        startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
+        Player.inQuest = true;
+        creature.interactedWith = true;
+        d.SetName(creature.creatureName);
     }
 
     public void Change()
     {
+        track = 1;
+        
+    }
+
+    public void TurnIn()
+    {
+        track = 2;
 
     }
 

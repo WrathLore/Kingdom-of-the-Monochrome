@@ -23,6 +23,7 @@ public class RedLamb : MonoBehaviour
     [SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
+    int track = 0;//0 is for quest, 1 is for change, 2 is for wrong turn in
 
     [Header("Writing")]
     [SerializeField] string text = "The cleric before you looks frazzled, quite a bit of concern present in their eyes as they rush this way and that, hardly even noticing you. In their hand is a large gleaming axe held firmly by clearly experienced hands. You are unsure what they may do if you alert them to your presence.";
@@ -58,25 +59,34 @@ public class RedLamb : MonoBehaviour
                 {
                     button.onClick.AddListener(Quest);
                 }
-                if(accept != null)
-                {
-                    accept.onClick.AddListener(Change);
-                }
+
             }
+            if(startedQuest)
+            {
+                d.SetName(creature.creatureName);//need to reset the name and dialogue in case another one shows up
+                if(track == 0)
+                {
+                    d.SetDialogue("Oh my! I did not see you there! You look like you may be able to help. You see, I have been stuck guarding this location without rest for a long time. However, I wish to find a certain flower that still holds the characteristics of the old land to remind me why I stay here. If you could, would you be willing to find that flower in the field behind me?"); 
+                }
+                else if(track == 1)
+                {
+                    d.SetDialogue("Have you found it yet? I have been stuck here for ages, waiting for a chance to look myself, yet it never comes. Remember, it is a flower and a rather unique one at that. Please return once you have found it.");
+                }
+                else if(track == 2)
+                {
+                    d.SetDialogue("I see you you still have not found it. Would you mind looking once more? I require only a single flower from the garden that I am forced to watch over. I see it every so often, but a glimpse of the true colors of the world is not enough anymore. Please, help me bring my colors back.");
+                }  
+                Player.inQuest = true;
+            }
+
+            if(accept != null)
+            {
+                accept.onClick.AddListener(Change);
+            }
+            turnIn.onClick.AddListener(TurnIn);
             
             //should be something like above but doesn't seem to be working
             //look more into this later, otherwise maybe ask teacher about it
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            if(startedQuest)
-            {
-                creature.choice.SetActive(false);
-            }
         }
     }
 
@@ -95,6 +105,8 @@ public class RedLamb : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
           
         }
     }
@@ -108,23 +120,26 @@ public class RedLamb : MonoBehaviour
         //will want to change the dialogue box as well as deactivate the choice box
         d.DeactivateDialogueBox();
         //need to mess around with the dialogue now for next time player presses T
-
+        track = 1;
         d.SetDialogue("Have you found it yet? I have been stuck here for ages, waiting for a chance to look myself, yet it never comes. Remember, it is a flower and a rather unique one at that. Please return once you have found it.");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
-        turnIn.onClick.AddListener(TurnIn);
     }
 
     public void TurnIn()
     {
         if(pick != null && pick.pickedUp)
         {
+            track = 3;//JUST IN CASE
             Rewards();
             questGiver.SetActive(false);
             d.DeactivateDialogueBox();
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
         }
         else
         {
+            track = 2;
             d.SetDialogue("I see you you still have not found it. Would you mind looking once more? I require only a single flower from the garden that I am forced to watch over. I see it every so often, but a glimpse of the true colors of the world is not enough anymore. Please, help me bring my colors back.");
         }
     }
