@@ -58,15 +58,15 @@ public class BlueUnique : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
-
+                    d.SetDialogue("TEST");
                 }
                 else if(track == 1)
                 {
-
+                    d.SetDialogue("TEST");
                 }
                 else if(track == 2)
                 {
-                    
+                    d.SetDialogue("TEST");
                 }
 
             }
@@ -108,17 +108,20 @@ public class BlueUnique : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
+        d.SetDialogue("TEST");
     }
 
     public void Change()
     {
         track = 1;
+        d.SetDialogue("TEST");
 
     }
 
     public void TurnIn()
     {
         track = 2;
+        d.SetDialogue("TEST");
     }
 
     public void SetName(string name)

@@ -58,15 +58,15 @@ public class GreenFairy : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
-
+                    d.SetDialogue("TEST");
                 }
                 else if(track == 1)
                 {
-
+                    d.SetDialogue("TEST");
                 }
                 else if(track == 2)
                 {
-                    
+                    d.SetDialogue("TEST");
                 }
 
             }
@@ -108,6 +108,7 @@ public class GreenFairy : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
+        d.SetDialogue("TEST");
         //activate the block door until quest is finished
         //spawn in the items to look for
         //maybe just offer them one at a time or work with a dropdown menu so items are not deleted
@@ -127,12 +128,14 @@ public class GreenFairy : MonoBehaviour
     public void Change()
     {
         track = 1;
+        d.SetDialogue("TEST");
 
     }
 
     public void TurnIn()
     {
         track = 2;
+        d.SetDialogue("TEST");
     }
 
     public void SetName(string name)
