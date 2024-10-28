@@ -414,4 +414,9 @@ public class Player : MonoBehaviour
         IncreaseStrength();
         SetColor();
     }
+
+    public void BlockProjectiles()
+    {
+        //use for the blocking sections
+    }
 }

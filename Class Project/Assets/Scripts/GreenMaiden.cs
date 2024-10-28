@@ -132,4 +132,5 @@ public class GreenMaiden : MonoBehaviour
     {
         dialogueText.text = dialogue;
     }
+
 }
