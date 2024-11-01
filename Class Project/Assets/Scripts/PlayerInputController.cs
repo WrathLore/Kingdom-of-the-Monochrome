@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] RulesScript rules;
     [SerializeField] Dialogue dialogue;
     public static bool inFight = false;
+    [SerializeField] PlayerAnimationStateChanger a;
 
     // Update is called once per frame
     void Update()
@@ -74,15 +75,23 @@ public class PlayerInputController : MonoBehaviour
          Vector3 movement = Vector3.zero;
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){ 
             movement += new Vector3(0,1,0);//up
+            a.ChangeAnimationState("Back");
         }
         if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)){
             movement += new Vector3(0,-1,0);//down
+            a.ChangeAnimationState("Forward");
         }
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
             movement += new Vector3(-1,0,0);//left
+            a.ChangeAnimationState("Left");
         }
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             movement += new Vector3(1,0,0);//right
+            a.ChangeAnimationState("Right");
+        }
+        if(movement == Vector3.zero)//if not moving then just idle animation
+        {
+            a.ChangeAnimationState("Idle");
         }
         
         player.Move(movement);

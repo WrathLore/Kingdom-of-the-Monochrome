@@ -40,7 +40,7 @@ public class TutorialScript : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && tutorial != null)
         {
             tutorial.SetActive(false);
         }
