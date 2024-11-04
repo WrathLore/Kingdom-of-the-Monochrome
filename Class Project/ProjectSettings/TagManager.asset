@@ -28,6 +28,7 @@ TagManager:
   - Door
   - Red Lamb Quest
   - Red Lamb Fight
+  - Puzzle Piece
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Puzzle Piece
   - 
   - 
   - 

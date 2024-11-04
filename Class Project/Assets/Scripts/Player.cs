@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     public static int red = 0;
     [SerializeField] List<string> questItems; //can do a dropdown menu probably to decide which one to do
     public string item;//use through all versions, so easiest to do this
+    //DO NOT MAKE ABOVE STATIC, WILL BE EASIEST TO RESET ON DEFEAT THIS WAY, ESPECIALLY WITH A DROPDOWN MENU/LIST SETUP
     //[SerializeField] List<WeaponScript> weaponsList;//the stats of the weapons
     //ABOVE MAY GO BACK TO, sticking with one weapon for easier time programming for now
     [SerializeField] public WeaponScript weapon;
@@ -64,6 +65,8 @@ public class Player : MonoBehaviour
     //use the above two for the tutorial specifically; ie don't let player progress tutorial until these are true
     public static int killed = 0;
     public static int quest = 0;//two ints to track number killed and number quested
+    int questInLevel = 0;
+    int fightInLevel = 0;//use to keep track of the number quested and killed in level for reset purposes
     public static int finalTotal = 15;//5 in each area(right now, so keep track here)
     public static bool isBlocking = false;//decide whether or not to block
     public bool isAttacking = false;
@@ -210,11 +213,13 @@ public class Player : MonoBehaviour
     public void QuestFinished()//keep track of quests
     {
         quest++;
+        questInLevel++;
     }
 
     public void FightFinished()//keep track of fights
     {
         killed++;
+        fightInLevel++;
     }
 
     public int Total()//keep track of total quests and fights finished
@@ -399,6 +404,8 @@ public class Player : MonoBehaviour
             {//if on final level, none of the colors should reset, either that or if lose on final level, restart from scratch maybe
                 green = 0;
             }
+            quest -= questInLevel;
+            killed -= fightInLevel;
             //would need to save the progress at the beginning of the scene and load that probably
             //show a game over screen(probs have scene start over)
             //either this or start over from scratch so jump to main menu and reset all the variables to their original states
