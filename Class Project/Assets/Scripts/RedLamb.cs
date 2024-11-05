@@ -128,24 +128,31 @@ public class RedLamb : MonoBehaviour
 
     public void TurnIn()
     {
-        if(pick != null && pick.pickedUp)
+        foreach(string item in player.questItems)
         {
-            track = 3;//JUST IN CASE
-            Rewards();
-            questGiver.SetActive(false);
-            d.DeactivateDialogueBox();
-            accept.onClick.RemoveListener(Change);
-            turnIn.onClick.RemoveListener(TurnIn);
+            if(string.Equals(flower,item))
+            {
+                track = 3;//JUST IN CASE
+                Rewards();
+                questGiver.SetActive(false);
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
         }
-        else
+        if(track != 3)
         {
             track = 2;
             d.SetDialogue("I see you you still have not found it. Would you mind looking once more? I require only a single flower from the garden that I am forced to watch over. I see it every so often, but a glimpse of the true colors of the world is not enough anymore. Please, help me bring my colors back.");
         }
+       
     }
 
     public void Quest()
     {
+        track = 0;
         creature.choice.SetActive(false);
         startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
         Player.inQuest = true;

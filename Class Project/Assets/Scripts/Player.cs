@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
 
     [Header("Information")]
     [SerializeField] bool isDead = false;
+    public bool questFailed = false;
     public bool dodged = false;
     int dodgeCount = 0;//use to track number of times dodge increased
     public bool inTutorial = false;
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
     public static int green = 0;
     public static int blue = 0;
     public static int red = 0;
-    [SerializeField] List<string> questItems; //can do a dropdown menu probably to decide which one to do
+    [SerializeField] public List<string> questItems; //can do a dropdown menu probably to decide which one to do
     public string item;//use through all versions, so easiest to do this
     //DO NOT MAKE ABOVE STATIC, WILL BE EASIEST TO RESET ON DEFEAT THIS WAY, ESPECIALLY WITH A DROPDOWN MENU/LIST SETUP
     //[SerializeField] List<WeaponScript> weaponsList;//the stats of the weapons
@@ -379,7 +380,7 @@ public class Player : MonoBehaviour
 
     public void Defeat()
     {
-        if(isDead)
+        if(isDead || questFailed)
         {
             PlayerInputController.inFight = false;//if died in fight, make this false so that you can move again once level restarts
             actionTaken = "Waiting for input...";
@@ -406,6 +407,7 @@ public class Player : MonoBehaviour
             }
             quest -= questInLevel;
             killed -= fightInLevel;
+            questItems.Clear();
             //would need to save the progress at the beginning of the scene and load that probably
             //show a game over screen(probs have scene start over)
             //either this or start over from scratch so jump to main menu and reset all the variables to their original states

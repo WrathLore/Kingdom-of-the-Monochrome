@@ -35,12 +35,6 @@ public class PlayerInputController : MonoBehaviour
             {
                 DialogueActivator();
             }
-           /* else
-            {
-                //activate the choice button if possible
-                //WORK IN PROGRESS
-                //FIGURE OUT AFTER FINISHING DIALOGUE PARTS
-            }*/
             
         }
     }

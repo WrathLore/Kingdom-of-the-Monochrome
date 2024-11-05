@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TimerScript : MonoBehaviour
 {
@@ -22,4 +23,42 @@ public class TimerScript : MonoBehaviour
     //          break
     //      restart the scene
     //end while
+    [SerializeField] TextMeshProUGUI textTimer;
+    [SerializeField] PuzzleScript puzzle;//to check if puzzle is completed or not
+    [SerializeField] float currentTime = 300.0f;
+    [SerializeField] float maxTime = 300.0f;
+    [SerializeField] Player player;
+
+    void Start()
+    {
+        textTimer.text = currentTime.ToString() + " seconds remaining.";
+    }
+
+    //https://discussions.unity.com/t/c-countdown-timer/37915/2
+    //comment 2 was where the main idea for this coroutine came from
+    public IEnumerator CountDownRoutine()
+    {
+        while(currentTime > 0 && !puzzle.finishedPuzzle)
+        {
+            yield return new WaitForSeconds(1.0f);
+            currentTime--;
+            textTimer.text = currentTime.ToString() + " seconds remaining.";
+        }
+
+        //reached here means timer has ended or the puzzle has been completed
+        if(currentTime == 0)
+        {
+            //reload the scene basically
+            puzzle.FinishGame();//destroy the pieces just in case
+            player.questFailed = true;
+            player.Defeat();
+        }
+        else
+        {
+            //if reached here, then puzzle was completed, so reset the timer I guess
+            currentTime = maxTime;
+            textTimer.text = currentTime.ToString() + " seconds remaining.";
+        }
+    }
+
 }

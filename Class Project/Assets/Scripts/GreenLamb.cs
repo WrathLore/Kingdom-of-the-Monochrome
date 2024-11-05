@@ -27,6 +27,9 @@ public class GreenLamb : MonoBehaviour
     [SerializeField] string fight = "Step over the tile to continue forward";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] GameObject puzzleBase;//use to activate the puzzle, ie bring in the required material for it
+    public string puzzle = "Completed Tile";//to bring back to the green lamb
+    [SerializeField] PuzzleScript puzzleScript;//to start the puzzle up
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -58,15 +61,15 @@ public class GreenLamb : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Ah, maybe you can help. You see, I have a problem, one of the tiles depicting our history has shattered, leaving behind a grey husk of what it should be. The pieces are still here, but the color is fading fast and I fear it may be lost if they are not placed correctly in time. Would you be willing to help?");
                 }
                 else if(track == 1)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Please hurry! There is not much time left to fix this!");
                 }
                 else if(track == 2)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Please, stop wasting time! Hurry over and place the tile back together.");
                 }
 
             }
@@ -111,22 +114,45 @@ public class GreenLamb : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
-        
+        d.SetDialogue("Ah, maybe you can help. You see, I have a problem, one of the tiles depicting our history has shattered, leaving behind a grey husk of what it should be. The pieces are still here, but the color is fading fast and I fear it may be lost if they are not placed correctly in time. Would you be willing to help?");
     }
 
     public void Change()
     {
         track = 1;
-        d.SetDialogue("TEST");
+        puzzleBase.SetActive(true);
+        puzzleScript.StartGame();
+        d.DeactivateDialogueBox();
+        d.SetDialogue("Please hurry! There is not much time left to fix this!");
+        accept.gameObject.SetActive(false);
+        turnIn.gameObject.SetActive(true);
 
     }
 
     public void TurnIn()
     {
-        track = 2;
-        d.SetDialogue("TEST");
-    }
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(puzzle,item))
+            {
+                track = 3;//JUST IN CASE
+                puzzleScript.FinishGame();
+                puzzleBase.SetActive(false);
+                Rewards();
+                questGiver.SetActive(false);
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
+        }
+        if(track != 3)
+        {
+            track = 2;
+            d.SetDialogue("Please, stop wasting time! Hurry over and place the tile back together.");
+        }
+   }
 
     public void SetName(string name)
     {
@@ -136,5 +162,21 @@ public class GreenLamb : MonoBehaviour
     public void SetDialogue(string dialogue)
     {
         dialogueText.text = dialogue;
+    }
+
+    public void Rewards()
+    {
+        if(creature != null)
+        {
+            if(creature.inTutorialQuest)
+            {
+                 player.QuestVictory(creature.red, creature.green, creature.blue,"You found it! Thank you so much! This will be very helpful for my state of mind! And, for helping me in such a way, I wish to grant you something in return. I have my own little slice of the old world thanks to you, so I wish to give you your own bit of that world as well.", creature.GetPercent(), creature.GetProgress(), true);   
+            }
+            else
+            {
+                player.QuestVictory(creature.red, creature.green, creature.blue,"You found it! Thank you so much! This will be very helpful for my state of mind! And, for helping me in such a way, I wish to grant you something in return. I have my own little slice of the old world thanks to you, so I wish to give you your own bit of that world as well.", creature.GetPercent(), creature.GetProgress());
+            }
+        }
+        
     }
 }

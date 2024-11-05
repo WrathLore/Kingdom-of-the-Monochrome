@@ -19,7 +19,12 @@ public class PuzzleScript : MonoBehaviour
     [SerializeField] Transform gameHolder;
     [SerializeField] Transform piecePrefab;
     [SerializeField] GameObject basePicture;
-
+    public bool finishedPuzzle = false;//use to interact with the other scripts as needed
+    [SerializeField] TimerScript timer;
+    [SerializeField] GameObject timerText;//set it to true
+    [SerializeField] Player player;
+    [SerializeField] string questObject;//set to the same thing in the specified character
+    //so for Green Lamb, it will be "Completed Tile"
 
     [Header("Puzzle Pieces")]
     [SerializeField] Texture2D jigsawTexture;
@@ -29,12 +34,9 @@ public class PuzzleScript : MonoBehaviour
     private float height;
     private Transform draggingPiece = null;//use for dragging pieces around
     private Vector3 offset;
-    void Start()
-    {
-        StartGame(jigsawTexture);
-    }
+    private int piecesCorrect;
 
-    public void StartGame(Texture2D jigsawTexture)
+    public void StartGame()
     {
         pieces = new List<Transform>();
 
@@ -43,6 +45,10 @@ public class PuzzleScript : MonoBehaviour
         CreateJigsawPieces(jigsawTexture);
         Scatter();//scatter is part 3, but only used small portion of video compared to other 2 videos
         
+        piecesCorrect = 0;//starting a new game, so should be at 0
+    
+        timerText.SetActive(true);
+        StartCoroutine(timer.CountDownRoutine());
     }
 
     Vector2Int GetDimensions(Texture2D jigsawTexture, int difficulty)
@@ -120,18 +126,30 @@ public class PuzzleScript : MonoBehaviour
     //for the mouse button movements and the like
     void Update()
     {
-        //cannot for the life of me get mousebuttondown working, so just getting this working as best I can with getmousebutton
-        if(Input.GetMouseButton(0))//the left button specifically
+
+        if(finishedPuzzle)
         {
-            //use raycast to see if click on any of the pieces
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if(hit && hit.transform.CompareTag("Puzzle Piece"))
-            {//do need to make sure it is a puzzle piece, so only move the ones with a tag of "Puzzle Piece"
+            timerText.SetActive(false);//just disable the time
+        }
+        else
+        {
+            //cannot for the life of me get mousebuttondown working, so just getting this working as best I can with getmousebutton
+            //FIXED ABOVE COMMENT, had everything under the if statement below so it wasn't working correctly
+            if(Input.GetMouseButtonDown(0))//the left button specifically
+            {
+                //use raycast to see if click on any of the pieces
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if(hit && hit.transform.CompareTag("Puzzle Piece"))
+                {//do need to make sure it is a puzzle piece, so only move the ones with a tag of "Puzzle Piece"
                     draggingPiece = hit.transform;
+                    offset = draggingPiece.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    offset += Vector3.back;
+                }
             }
 
             if(draggingPiece && Input.GetMouseButtonUp(0))
             {
+                draggingPiece.position += Vector3.forward;
                 SnapAndDisableIfCorrect();
                 draggingPiece = null;
             }
@@ -139,18 +157,55 @@ public class PuzzleScript : MonoBehaviour
             if(draggingPiece)//ie draggingPiece is not null
             {
                 Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                newPosition.z = draggingPiece.position.z;
+                //newPosition.z = draggingPiece.position.z;
                 //above line to make sure z position is correct so piece doesn't vanish from view
+                newPosition += offset;
+                //above line includes z position of offset, so newPosition.z line not needed
                 draggingPiece.position = newPosition;
             }
 
 
         }
 
-        void SnapAndDisableIfCorrect()
+        
+        
+    }
+    void SnapAndDisableIfCorrect()
+    {
+        //index ofpiece to determine correct position
+        int pieceIndex = pieces.IndexOf(draggingPiece);
+        //coordinates of piece in puzzle
+        int col = pieceIndex % dimensions.x;
+        int row = pieceIndex / dimensions.x;
+        //target position in non scaled coordinates
+        Vector2 targetPos = new((-width*dimensions.x/2)+(width*col)+(width/2), (-height*dimensions.y/2)+(height*row)+(height/2));
+        //check if in correct position
+        if(Vector2.Distance(draggingPiece.localPosition, targetPos) < (width/2))
         {
-
+            //snap to destination
+            draggingPiece.localPosition = targetPos;
+            //disable collider so can't click on object anymore
+            draggingPiece.GetComponent<BoxCollider2D>().enabled = false;
+            piecesCorrect++;//to make sure it is added so one step closer to finishing puzzle
+            if(piecesCorrect == pieces.Count)
+            {
+                //if all pieces in place, then can let timer know to stop and disable the pieces and such
+                //that way puzzle is finished, item is gained, and timer stops so scene doesn't start over
+                finishedPuzzle = true;
+                player.RegisterItem(questObject);
+            }
         }
+    }
+
+    public void FinishGame()
+    {
+        //call if finishedPuzzle is true
+        foreach(Transform piece in pieces)
+        {
+            Destroy(piece.gameObject);
+        }
+        pieces.Clear();//clear the List
+        //could disable the puzzle base, but would be best to do it in the character script
     }
 
 }
