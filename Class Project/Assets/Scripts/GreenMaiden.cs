@@ -20,6 +20,7 @@ public class GreenMaiden : MonoBehaviour
     //[SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
+    [SerializeField] public int hitPoints = 3;//use in tandem with projectile script
     int track = 0;
     [Header("Writing")]
     [SerializeField] string text = "A maiden sits weeping by a well. She appears distraught, with tears staining her face as she wails into the air. Such a loud noise is sure to draw in something more dangerous soon.";
@@ -27,6 +28,15 @@ public class GreenMaiden : MonoBehaviour
     [SerializeField] string fight = "Tell the maiden to be quiet";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+
+    void Update()
+    {
+        if(hitPoints <= 0)
+        {
+            player.questFailed = true;
+            player.Defeat();
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -131,6 +141,15 @@ public class GreenMaiden : MonoBehaviour
     public void SetDialogue(string dialogue)
     {
         dialogueText.text = dialogue;
+    }
+
+    public void Rewards()
+    {
+        if(creature != null)
+        {
+             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+        }
+        
     }
 
 }

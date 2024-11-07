@@ -29,6 +29,7 @@ TagManager:
   - Red Lamb Quest
   - Red Lamb Fight
   - Puzzle Piece
+  - Projectile
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -9,13 +10,18 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] WelcomeScript welcome;
     [SerializeField] RulesScript rules;
     [SerializeField] Dialogue dialogue;
+    [SerializeField] GameObject itemBox;
+    [SerializeField] TextMeshProUGUI itemText;
     public static bool inFight = false;
+    [SerializeField] int blockTime = 3;
     [SerializeField] PlayerAnimationStateChanger a;
 
     // Update is called once per frame
     void Update()
     {
         PanelUpdate();
+        ItemUpdate();
+        Block();
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -31,11 +37,40 @@ public class PlayerInputController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.T) && Player.onCharacter)
         {//needs keydown because get key will update too many times and flicker the dialogue box on and off
-            if(Player.inQuest)
+            if(Player.inQuest && dialogue != null)
             {
                 DialogueActivator();
             }
             
+        }
+
+        
+    }
+
+    public void Block()
+    {
+        if(Input.GetKeyDown(KeyCode.B) && player != null)
+        {
+            player.blocked = true;
+        }
+
+        if(Input.GetKeyUp(KeyCode.B) && player != null)
+        {
+            player.blocked = false;
+        }
+        StartCoroutine(player.BlockRoutine(blockTime));
+    }
+
+    public void ItemUpdate()
+    {
+        if(Input.GetKey(KeyCode.I) && itemBox != null)
+        {
+            itemText.text = "";//just set it to nothing for the moment
+            foreach(string item in player.questItems)
+            {
+                itemText.text += item + "\n";
+            }
+            itemBox.SetActive(true);
         }
     }
 
@@ -61,6 +96,7 @@ public class PlayerInputController : MonoBehaviour
             rules.RulesClose();
             player.victoryPanel.SetActive(false);
             player.victoryQuest.SetActive(false);
+            itemBox.SetActive(false);
         }
     }
 

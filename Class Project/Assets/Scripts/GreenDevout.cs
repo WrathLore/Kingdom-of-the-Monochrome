@@ -133,4 +133,13 @@ public class GreenDevout : MonoBehaviour
     {
         dialogueText.text = dialogue;
     }
+
+    public void Rewards()
+    {
+        if(creature != null)
+        {
+             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+        }
+        
+    }
 }

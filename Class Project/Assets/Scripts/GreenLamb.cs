@@ -168,14 +168,7 @@ public class GreenLamb : MonoBehaviour
     {
         if(creature != null)
         {
-            if(creature.inTutorialQuest)
-            {
-                 player.QuestVictory(creature.red, creature.green, creature.blue,"You found it! Thank you so much! This will be very helpful for my state of mind! And, for helping me in such a way, I wish to grant you something in return. I have my own little slice of the old world thanks to you, so I wish to give you your own bit of that world as well.", creature.GetPercent(), creature.GetProgress(), true);   
-            }
-            else
-            {
-                player.QuestVictory(creature.red, creature.green, creature.blue,"You found it! Thank you so much! This will be very helpful for my state of mind! And, for helping me in such a way, I wish to grant you something in return. I have my own little slice of the old world thanks to you, so I wish to give you your own bit of that world as well.", creature.GetPercent(), creature.GetProgress());
-            }
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Oh goodness, you actually managed to do it! I thank you from the bottom of my heart. I do not know what I would have done if nothing could be done to save our history. You have done me a great favor here today and all I can offer now is this paltry reward. Please, accept it even with what little I have.", creature.GetPercent(), creature.GetProgress());
         }
         
     }

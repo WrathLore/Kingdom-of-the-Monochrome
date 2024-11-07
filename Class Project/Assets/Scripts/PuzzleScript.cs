@@ -182,6 +182,7 @@ public class PuzzleScript : MonoBehaviour
         //check if in correct position
         if(Vector2.Distance(draggingPiece.localPosition, targetPos) < (width/2))
         {
+            //PUT IN A CLICKING SOUND HERE FOR WHEN PIECE IS PUT IN CORRECTLY
             //snap to destination
             draggingPiece.localPosition = targetPos;
             //disable collider so can't click on object anymore

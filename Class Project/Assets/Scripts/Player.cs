@@ -12,12 +12,14 @@ using UnityEditor.PackageManager;
 //and if you choose to talk, then you automatically go down the quest path and it exits the screen
 public class Player : MonoBehaviour
 {
+    [Header("Objects To Change")]
     Rigidbody2D pb;
     public string scene; //has to be public to access it
     public GameObject victoryPanel;//set to true on victory
     public GameObject fightPanel;//set to false on victory
     public GameObject victoryQuest;//set true on victory for quest
     [SerializeField] TextMeshProUGUI victoryText;
+    [SerializeField] GameObject shieldBubble;
     
     [Header("Stats")]//alot of this has been changed to static to keep track between scenes
     public static float currentHealthPoints = 40;
@@ -43,6 +45,8 @@ public class Player : MonoBehaviour
     int dodgeCount = 0;//use to track number of times dodge increased
     public bool inTutorial = false;
     public static string actionTaken = "Waiting for input...";
+    public int hit = 0;//reset at end of projectiles being launched
+    public bool blocked = false;
     //c# does have bool values unlike with c
     [Header("Items")] //may or may not do static for these, may just have them show up starting as this in each area
     public static int healthPotions = 2;
@@ -89,6 +93,7 @@ public class Player : MonoBehaviour
     //static variables for things that have to carry over between scenes
     //may need to mess around with the killed and quest static though, cause they should reset if you die
     //but for now this works well enough
+    
 
     void Awake()
     {
@@ -120,6 +125,16 @@ public class Player : MonoBehaviour
     {
         progressTracker += p;
         progress += pr;
+    }
+
+    public void IncreaseHits()
+    {
+        hit++;
+        if(hit > 3)
+        {
+            questFailed = true;
+            Defeat();
+        }
     }
 
     public void changeScene()
@@ -382,6 +397,7 @@ public class Player : MonoBehaviour
     {
         if(isDead || questFailed)
         {
+            hit = 0;
             PlayerInputController.inFight = false;//if died in fight, make this false so that you can move again once level restarts
             actionTaken = "Waiting for input...";
             Creature.actionTaken = "Waiting for first move...";
@@ -427,5 +443,23 @@ public class Player : MonoBehaviour
     public void BlockProjectiles()
     {
         //use for the blocking sections
+    }
+
+
+    public IEnumerator BlockRoutine(int currentTime)
+    {
+        if(shieldBubble != null)
+        {
+            shieldBubble.SetActive(true);
+            while(currentTime > 0 && blocked)
+            {
+                yield return new WaitForSeconds(1.0f);
+                currentTime--;
+            }
+
+            //once it breaks out of the while loop either because time ran out or because the button stopped being pressed then turn off the shield
+            blocked = false;
+            shieldBubble.SetActive(false);
+        }
     }
 }
