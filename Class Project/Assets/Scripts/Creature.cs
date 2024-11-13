@@ -251,7 +251,14 @@ public class Creature : MonoBehaviour
                 }
                 else
                 {
-                    player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress());
+                    if(string.Equals(creatureName, "Green Fairy"))
+                    {
+                        player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<GreenFairy>().sword);
+                    }
+                    else
+                    {
+                        player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress());
+                    }
                 }
                 //deactivate the creature as they are functionally dead now
                 creature.SetActive(false);

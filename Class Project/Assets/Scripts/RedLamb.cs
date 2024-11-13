@@ -20,7 +20,6 @@ public class RedLamb : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] Creature creature;//use to get the red green blue values
     [SerializeField] Dialogue d;//use for all the dialogue needs
-    [SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
     int track = 0;//0 is for quest, 1 is for change, 2 is for wrong turn in

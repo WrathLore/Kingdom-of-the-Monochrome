@@ -32,6 +32,7 @@ public class GreenMaiden : MonoBehaviour
     [SerializeField] string protection = "Broken Arrow";
     [SerializeField] GameObject brokenArrow;
 
+
     void Update()
     {
         if(hitPoints <= 0)

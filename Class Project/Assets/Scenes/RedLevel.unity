@@ -1498,6 +1498,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 542482704}
     - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: itemAcquired
+      value: 
+      objectReference: {fileID: 1949676805}
+    - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: shieldBubble
+      value: 
+      objectReference: {fileID: 329634560}
+    - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: victoryPanel
       value: 
       objectReference: {fileID: 1042371151}
@@ -1540,6 +1548,11 @@ MonoBehaviour:
 --- !u!95 &329634559 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3438104334355709305, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+  m_PrefabInstance: {fileID: 329634555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &329634560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571647003697475956, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
   m_PrefabInstance: {fileID: 329634555}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &346844862
@@ -7284,6 +7297,17 @@ Transform:
   - {fileID: 1267622134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949676805 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3309902310778760643, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 725775961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1954813212
 PrefabInstance:
   m_ObjectHideFlags: 0

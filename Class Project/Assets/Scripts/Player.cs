@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public GameObject fightPanel;//set to false on victory
     public GameObject victoryQuest;//set true on victory for quest
     [SerializeField] TextMeshProUGUI victoryText;
+    [SerializeField] TextMeshProUGUI itemAcquired;//use for items gained through fighting
     [SerializeField] GameObject shieldBubble;
     
     [Header("Stats")]//alot of this has been changed to static to keep track between scenes
@@ -59,7 +60,6 @@ public class Player : MonoBehaviour
     //could possibly do a list of fight items as well, but that would be more for flavor than anything else
     //at least right now, final progress depends on counter of quests and fights completed
     //would also have to change the list to public static instead of just public to keep progress on list between scenes
-    
     [SerializeField] public WeaponScript weapon;
 
     //internal trackers below
@@ -345,7 +345,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Victory(int red, int green, int blue, int potions, float prog, int p, bool tutorial = false)
+    public void Victory(int red, int green, int blue, int potions, float prog, int p, bool tutorial = false, string itemGained = "")
     {
         actionTaken = "Waiting for input...";
         onCharacter = false;
@@ -364,6 +364,18 @@ public class Player : MonoBehaviour
         {
             fightPanel.SetActive(false);
             victoryPanel.SetActive(true);
+            if(itemAcquired != null)
+            {
+                itemAcquired.text = "";
+            }
+            if(!string.IsNullOrEmpty(itemGained))
+            {
+                RegisterItem(itemGained);
+                if(itemAcquired != null)
+                {
+                    itemAcquired.text = "Additionally, " + creatureName + " has acquired the item " + itemGained;
+                }
+            }
         }
 
     }

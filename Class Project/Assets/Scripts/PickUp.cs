@@ -12,8 +12,9 @@ public class PickUp : MonoBehaviour
     [Header("Information")]
     [SerializeField] string questObject;//public so that can use it in player input controller
     public bool pickedUp = false; //use to tell if item has been picked up now
-    public static bool onItem = false;
-    //will be best to have this bool be static so that can do it multiple times
+    public bool onItem = false;
+
+    [SerializeField] GreenFairy greenFairy;
 
     void Update()
     {
@@ -34,11 +35,26 @@ public class PickUp : MonoBehaviour
 
     public void PickUpItem()
     {
-        //only called if onItem is true
-        player.RegisterItem(questObject);
-        onItem = false;
-        pickedUp = true;
-        item.SetActive(false);
+        if(greenFairy != null)
+        {
+            if(!greenFairy.oneItem)
+            {
+                //need to make sure can only pick up one item at a time to not cheat the system
+                greenFairy.oneItem = true;
+                player.RegisterItem(questObject);
+                onItem = false;
+                pickedUp = true;
+                item.SetActive(false);
+            }
+        }
+        else
+        {
+            //only called if onItem is true
+            player.RegisterItem(questObject);
+            onItem = false;
+            pickedUp = true;
+            item.SetActive(false);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)

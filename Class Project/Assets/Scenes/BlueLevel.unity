@@ -253,6 +253,17 @@ Transform:
   - {fileID: 884722857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179364483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3309902310778760643, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 967217763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &484077128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1850523212186574017, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
@@ -2623,6 +2634,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 573892150}
     - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: itemAcquired
+      value: 
+      objectReference: {fileID: 179364483}
+    - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: shieldBubble
+      value: 
+      objectReference: {fileID: 1731460248}
+    - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: victoryPanel
       value: 
       objectReference: {fileID: 484077128}
@@ -2665,6 +2684,11 @@ MonoBehaviour:
 --- !u!95 &1731460247 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3438104334355709305, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+  m_PrefabInstance: {fileID: 1731460243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1731460248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571647003697475956, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
   m_PrefabInstance: {fileID: 1731460243}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1791198308

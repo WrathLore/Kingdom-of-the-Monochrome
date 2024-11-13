@@ -22,16 +22,37 @@ public class GreenFairy : MonoBehaviour
     [SerializeField] Button turnIn;
     int track = 0;
     [Header("Writing")]
-    [SerializeField] string text = "A whistle can be heard as a glowing fairy comes into view. They are lugging what appears to be a sword behind them, one that appears like it may fit into the puzzle ahead.";
+    [SerializeField] string text = "A whistle can be heard as a glowing fairy comes into view. They are lugging what appears to be a sword behind them, one that appears like it may fit into the now locked door behind you.";
     [SerializeField] string quest = "Ask for the sword from the fairy";//look for something to exchange with them
     [SerializeField] string fight = "Take the sword from the fairy";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] GameObject lockedDoor;
+    [SerializeField] string rightObject = "Apple";//just to make it easy, let's go with fruits for this stuff
+    public string sword = "Key Sword";
+    [SerializeField] List<GameObject> items;//the items to spawn in just put them in the list
+    //if more time might go back to this and make it so that it is a different item on the list each time
+    //otherwise just keep it as this, they'll each have a pickup script on them
+    [SerializeField] public bool oneItem = false;
 
+    void Awake()
+    {
+        items.AddRange(GameObject.FindGameObjectsWithTag("Food"));
+    }
+
+    void Start()
+    {
+        foreach(GameObject obj in items)
+        {
+            obj.SetActive(false);
+        }
+    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
+            lockedDoor.SetActive(true);
             if(!startedQuest)
             {
                 if(turnIn != null)
@@ -108,7 +129,7 @@ public class GreenFairy : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("Who are you? No, it doesn't matter. You want the sword? Well I want lunch! How's about this? You find me lunch and I'll give you the sword?");
         //activate the block door until quest is finished
         //spawn in the items to look for
         //maybe just offer them one at a time or work with a dropdown menu so items are not deleted
@@ -127,15 +148,45 @@ public class GreenFairy : MonoBehaviour
 
     public void Change()
     {
+        foreach(GameObject obj in items)
+        {
+            obj.SetActive(true);
+        }
+        d.DeactivateDialogueBox();
         track = 1;
-        d.SetDialogue("TEST");
+        d.SetDialogue("Description of what fairy wants here");
+        accept.gameObject.SetActive(false);
+        turnIn.gameObject.SetActive(true);
 
     }
 
     public void TurnIn()
     {
-        track = 2;
-        d.SetDialogue("TEST");
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(rightObject,item))
+            {
+                track = 3;//JUST IN CASE
+                Rewards();
+                questGiver.SetActive(false);
+                foreach(GameObject obj in items)
+                {
+                    obj.SetActive(false);
+                }
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
+        }
+        if(track != 3)
+        {
+            track = 2;
+            oneItem = false;
+            d.SetDialogue("wrong item so try again text here");
+        }
+        
     }
 
     public void SetName(string name)

@@ -416,6 +416,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &562989618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3309902310778760643, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 903474092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &630374589 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2252602956573744870, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
@@ -1169,6 +1180,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 467279456}
     - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: itemAcquired
+      value: 
+      objectReference: {fileID: 562989618}
+    - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: shieldBubble
+      value: 
+      objectReference: {fileID: 974088398}
+    - target: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: victoryPanel
       value: 
       objectReference: {fileID: 467279455}
@@ -1211,6 +1230,11 @@ MonoBehaviour:
 --- !u!95 &974088397 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3438104334355709305, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+  m_PrefabInstance: {fileID: 974088393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &974088398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571647003697475956, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
   m_PrefabInstance: {fileID: 974088393}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &976234720
