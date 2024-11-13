@@ -54,10 +54,12 @@ public class Player : MonoBehaviour
     public static int blue = 0;
     public static int red = 0;
     [SerializeField] public List<string> questItems; //can do a dropdown menu probably to decide which one to do
-    public string item;//use through all versions, so easiest to do this
-    //DO NOT MAKE ABOVE STATIC, WILL BE EASIEST TO RESET ON DEFEAT THIS WAY, ESPECIALLY WITH A DROPDOWN MENU/LIST SETUP
     //[SerializeField] List<WeaponScript> weaponsList;//the stats of the weapons
     //ABOVE MAY GO BACK TO, sticking with one weapon for easier time programming for now
+    //could possibly do a list of fight items as well, but that would be more for flavor than anything else
+    //at least right now, final progress depends on counter of quests and fights completed
+    //would also have to change the list to public static instead of just public to keep progress on list between scenes
+    
     [SerializeField] public WeaponScript weapon;
 
     //internal trackers below
@@ -70,8 +72,8 @@ public class Player : MonoBehaviour
     //use the above two for the tutorial specifically; ie don't let player progress tutorial until these are true
     public static int killed = 0;
     public static int quest = 0;//two ints to track number killed and number quested
-    int questInLevel = 0;
-    int fightInLevel = 0;//use to keep track of the number quested and killed in level for reset purposes
+    [SerializeField] int questInLevel = 0;
+    [SerializeField] int fightInLevel = 0;//use to keep track of the number quested and killed in level for reset purposes
     public static int finalTotal = 15;//5 in each area(right now, so keep track here)
     public static bool isBlocking = false;//decide whether or not to block
     public bool isAttacking = false;
@@ -113,12 +115,6 @@ public class Player : MonoBehaviour
     public void RegisterItem(string item)
     {
         questItems.Add(item);
-    }
-
-    public void SelectItem(int x)
-    {
-        //select item from the questItems list to set item to
-        item = questItems[x];//probably this, need to test it to make sure
     }
 
     public void IncreaseProgress(float p, int pr)
@@ -397,6 +393,8 @@ public class Player : MonoBehaviour
     {
         if(isDead || questFailed)
         {
+            questFailed = false;
+            isDead = false;//just in case I'll set these to false as well
             hit = 0;
             PlayerInputController.inFight = false;//if died in fight, make this false so that you can move again once level restarts
             actionTaken = "Waiting for input...";

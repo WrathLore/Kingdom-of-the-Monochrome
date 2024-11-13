@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4307340161741824703}
   m_Layer: 0
   m_Name: ProjectileLauncherHandler
-  m_TagString: Untagged
+  m_TagString: Projectile Launcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5819b66cc8757b34cb3b27d408e04f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 4893029904715950815, guid: aa2d4e477e16c9a4fa588e6df9a3b692, type: 3}
+  circlePrefab: {fileID: 4038358888437804441, guid: 5396d1b5681cb8c409533868a09e1203, type: 3}
+  scene: 
+  maxProjectiles: 10
+  currentProjectiles: 0
+  speed: 7
+  finalDest: {fileID: 0}
+  destroyedProjectiles: 0

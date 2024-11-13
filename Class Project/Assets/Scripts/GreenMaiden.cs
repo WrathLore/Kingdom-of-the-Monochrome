@@ -22,12 +22,15 @@ public class GreenMaiden : MonoBehaviour
     [SerializeField] Button turnIn;
     [SerializeField] public int hitPoints = 3;//use in tandem with projectile script
     int track = 0;
+    [SerializeField] ProjectileLauncher launcher;
     [Header("Writing")]
     [SerializeField] string text = "A maiden sits weeping by a well. She appears distraught, with tears staining her face as she wails into the air. Such a loud noise is sure to draw in something more dangerous soon.";
     [SerializeField] string quest = "Comfort the maiden";//fetch quest or maybe fend off things coming towards you for a number of minutes(start over if they get by you)
     [SerializeField] string fight = "Tell the maiden to be quiet";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] string protection = "Broken Arrow";
+    [SerializeField] GameObject brokenArrow;
 
     void Update()
     {
@@ -68,15 +71,15 @@ public class GreenMaiden : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Oh, hello. My apologies I was distraught over the hardships plauging my people. I find myself in quite the predicament as others aim to hunt me down for the sins and wrongdoings of my father. I fear they are close, lurking in the shadows with one last desperate attempt to try to slay me. WOuld you help protect me please?");
                 }
                 else if(track == 1)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Oh thank you! I fear they are closing in though, you may want to keep an eye out now!");
                 }
                 else if(track == 2)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Please, for both our sakes, focus on the task at hand!");
                 }
             }
             if(accept != null)
@@ -117,20 +120,44 @@ public class GreenMaiden : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("Oh, hello. My apologies I was distraught over the hardships plauging my people. I find myself in quite the predicament as others aim to hunt me down for the sins and wrongdoings of my father. I fear they are close, lurking in the shadows with one last desperate attempt to try to slay me. Would you help protect me please?");
     }
 
     public void Change()
     {
         track = 1;
-        d.SetDialogue("TEST");
-
+        d.SetDialogue("Oh thank you! I fear they are closing in though, you may want to keep an eye out now!");
+        d.DeactivateDialogueBox();
+        StartCoroutine(launcher.WaitRoutine());
+        accept.gameObject.SetActive(false);
+        turnIn.gameObject.SetActive(true);
     }
 
     public void TurnIn()
     {
-        track = 2;
-        d.SetDialogue("TEST");
+        if(launcher.destroyedProjectiles == launcher.maxProjectiles)
+        {
+            brokenArrow.SetActive(true);
+        }
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(protection,item))
+            {
+                track = 3;//JUST IN CASE
+                Rewards();
+                questGiver.SetActive(false);
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
+        }
+        if(track != 3)
+        {
+            track = 2;
+            d.SetDialogue("Please, for both our sakes, focus on the task at hand! Bring me something that will let me know this battle is over!");
+        }
     }
 
     public void SetName(string name)
@@ -147,7 +174,7 @@ public class GreenMaiden : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Thank you! I feared that would be the end of me and my kingdom would truly have been left with no hope for a better day. Thank you for all your help, I will never forget you.", creature.GetPercent(), creature.GetProgress());
         }
         
     }

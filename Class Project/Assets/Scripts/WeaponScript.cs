@@ -10,15 +10,9 @@ public class WeaponScript : MonoBehaviour
     //might make more complicated if time but this is good for now
     [SerializeField] public string shieldName;
     [SerializeField] public int block;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    //right now, this is just being used to store unique references to strings and ints
+    //may do more later, but right now this is working just fine
+    //if decide to mess around with dropping weapons or shields for player then this will be updated
+    //otherwise works as is
 }

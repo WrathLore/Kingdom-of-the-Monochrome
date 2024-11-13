@@ -13,8 +13,9 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] GameObject itemBox;
     [SerializeField] TextMeshProUGUI itemText;
     public static bool inFight = false;
-    [SerializeField] int blockTime = 3;
+    [SerializeField] int blockTime = 5;
     [SerializeField] PlayerAnimationStateChanger a;
+    [SerializeField] ProjectileLauncher launcher;
 
     // Update is called once per frame
     void Update()

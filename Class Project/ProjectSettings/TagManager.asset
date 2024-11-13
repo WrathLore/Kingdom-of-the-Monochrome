@@ -30,6 +30,7 @@ TagManager:
   - Red Lamb Fight
   - Puzzle Piece
   - Projectile
+  - Projectile Launcher
   layers:
   - Default
   - TransparentFX

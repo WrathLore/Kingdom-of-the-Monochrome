@@ -218,6 +218,7 @@ MonoBehaviour:
   fightPanel: {fileID: 0}
   victoryQuest: {fileID: 0}
   victoryText: {fileID: 0}
+  shieldBubble: {fileID: 0}
   speed: 5
   isDead: 0
   questFailed: 0

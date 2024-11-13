@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -7,29 +8,69 @@ public class ProjectileScript : MonoBehaviour
     //USE FOR ANY PROJECTILE STUFF
     //BLOCKING PROJECTILES IN PLAYER SCRIPT TO BE USED WITH IT
     //CAN TAKE CERTAIN AMOUNT OF HITS BEFORE YOU LOSE THE BLOCKING MINIGAME/QUEST
-    [SerializeField] Player player;
-    [SerializeField] GreenMaiden greenMaiden;//easiest to do it this way
-    [SerializeField] RedUnique redunique;
+    GameObject player;
+    GameObject greenMaiden;//easiest to do it this way
+    GameObject redUnique;
+    GameObject launcher;
+    [SerializeField] float speed = 7f;
 
-    void OnTriggerEnter2D(Collider2D other)//if hit the player
+    void Awake()
+    {
+        //want to set the projectile launcher here since projectiles are spawned in
+        launcher = GameObject.FindGameObjectWithTag("Projectile Launcher");
+        player = GameObject.FindGameObjectWithTag("Player");
+        greenMaiden = GameObject.FindGameObjectWithTag("Green Maiden");
+        redUnique = GameObject.FindGameObjectWithTag("Red Unique");
+
+    }
+
+    void Update()
+    {
+        if(greenMaiden != null)
+        {
+            MoveTowardsMaiden();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)//if hit the player or green maiden
     {
         if(other.CompareTag("Player") && player != null)
         {
-            if(!player.blocked)
+            if(!player.GetComponent<Player>().blocked)
             {
-                player.IncreaseHits();
+                player.GetComponent<Player>().IncreaseHits();
             }
-            else
-            {
-                //if player blocked, then remove the projectile entirely
-                Destroy(this.gameObject);
-            }
+            launcher.GetComponent<ProjectileLauncher>().destroyedProjectiles++;
+            Destroy(this.gameObject);
         }
 
         if(other.CompareTag("Green Maiden") && greenMaiden != null)
-        {
-            greenMaiden.hitPoints--;
+        {//had to put rigid body on green maiden for this to work, also changed the box collider size back to 1 to 1 instead of 2.7 to 2.7 since that is where the arrow is destroyed at
+            greenMaiden.GetComponent<GreenMaiden>().hitPoints--;
+            launcher.GetComponent<ProjectileLauncher>().destroyedProjectiles++;
             Destroy(this.gameObject);
         }
+
+        if(other.CompareTag("Red Unique") && redUnique != null)
+        {//need to put rigidbody on red unique if doing this
+        //may be something with throwing the projectile back at them or maybe just dodging the projectiles to make it easier
+            launcher.GetComponent<ProjectileLauncher>().destroyedProjectiles++;
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void AimProjectile(Vector3 pos)
+    {
+        Quaternion goalRotation = Quaternion.LookRotation(Vector3.forward, pos - transform.position);
+        Quaternion currentRotation = transform.rotation;
+
+        transform.rotation = Quaternion.Lerp(currentRotation, goalRotation,Time.deltaTime * int.MaxValue);
+        //int.MaxValue to get it to automatically rotate basically, otherwise this wouldn't work
+
+    }
+
+    public void MoveTowardsMaiden()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, launcher.transform.position,Time.deltaTime*speed);
     }
 }
