@@ -1414,7 +1414,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1441027553
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1278060529313493044
 MonoBehaviour:
@@ -1879,27 +1879,30 @@ MonoBehaviour:
 
     P - Pick up items
 
-    B - Block
+    U - Unlock doors
 
-    Space
-    - Travel through doors
+    B
+    - Block
+
+    Space - Travel through doors
 
     O - Options panel
 
-    T - Talk and interact
+    T - Talk
+    and interact
 
 
-    Player
-    Movement
+    Player Movement
 
     W and up arrow - move up
 
-    A and left arrow - move left
+    A and left
+    arrow - move left
 
-    S
-    and down arrow - move down
+    S and down arrow - move down
 
-    D and right arrow - move right'
+    D and right arrow -
+    move right'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

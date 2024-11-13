@@ -28,6 +28,12 @@ public class TimerScript : MonoBehaviour
     [SerializeField] float currentTime = 300.0f;
     [SerializeField] float maxTime = 300.0f;
     [SerializeField] Player player;
+    [SerializeField] GreenDevout greenDevout;
+
+    void Awake()
+    {
+        greenDevout = FindObjectOfType<GreenDevout>();
+    }
 
     void Start()
     {
@@ -36,28 +42,51 @@ public class TimerScript : MonoBehaviour
 
     //https://discussions.unity.com/t/c-countdown-timer/37915/2
     //comment 2 was where the main idea for this coroutine came from
-    public IEnumerator CountDownRoutine()
+    public IEnumerator CountDownRoutine(string currentTimer)
     {
-        while(currentTime > 0 && !puzzle.finishedPuzzle)
+        if(puzzle != null && string.Equals(currentTimer, "puzzle"))
         {
-            yield return new WaitForSeconds(1.0f);
-            currentTime--;
-            textTimer.text = currentTime.ToString() + " seconds remaining.";
-        }
+            while(currentTime > 0 && !puzzle.finishedPuzzle)
+            {
+                yield return new WaitForSeconds(1.0f);
+                currentTime--;
+                textTimer.text = currentTime.ToString() + " seconds remaining.";
+            }
 
-        //reached here means timer has ended or the puzzle has been completed
-        if(currentTime == 0)
-        {
-            //reload the scene basically
-            puzzle.FinishGame();//destroy the pieces just in case
-            player.questFailed = true;
-            player.Defeat();
+            //reached here means timer has ended or the puzzle has been completed
+            if(currentTime == 0)
+            {
+                //reload the scene basically
+                puzzle.FinishGame();//destroy the pieces just in case
+                player.questFailed = true;
+                player.Defeat();
+            }
+            else
+            {
+                //if reached here, then puzzle was completed, so reset the timer I guess
+                currentTime = maxTime;
+                textTimer.text = currentTime.ToString() + " seconds remaining.";
+            }
         }
-        else
+        else if(greenDevout != null && string.Equals(currentTimer,"greenDevout"))
         {
-            //if reached here, then puzzle was completed, so reset the timer I guess
-            currentTime = maxTime;
-            textTimer.text = currentTime.ToString() + " seconds remaining.";
+            while(currentTime > 0 && greenDevout.correctItems != 3)
+            {
+                yield return new WaitForSeconds(1.0f);
+                currentTime--;
+                textTimer.text = currentTime.ToString() + " seconds remaining.";
+            }
+
+            if(currentTime == 0)
+            {//should just have to do this for the green devout since everything is being done through the green devout script
+                player.questFailed = true;
+                player.Defeat();
+            }
+            else
+            {
+                currentTime = maxTime;
+                textTimer.text = currentTime.ToString() + " seconds remaining.";
+            }
         }
     }
 

@@ -32,6 +32,9 @@ TagManager:
   - Projectile
   - Projectile Launcher
   - Food
+  - Statue
+  - Bauble
+  - Tower
   layers:
   - Default
   - TransparentFX

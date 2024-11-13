@@ -79,15 +79,15 @@ public class GreenFairy : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Who are you? No, it doesn't matter. You want the sword? Well I want lunch! How's about this? You find me lunch and I'll give you the sword?");
                 }
                 else if(track == 1)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("What you want a hint? Hmmm, something sweet, but not too sweet! Obviously it has to be the right color too!");
                 }
                 else if(track == 2)
                 {
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Agh, you still haven't found it? None of these options are right!");
                 }
 
             }
@@ -154,7 +154,7 @@ public class GreenFairy : MonoBehaviour
         }
         d.DeactivateDialogueBox();
         track = 1;
-        d.SetDialogue("Description of what fairy wants here");
+        d.SetDialogue("What you want a hint? Hmmm, something sweet, but not too sweet! Obviously it has to be the right color too!");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
 
@@ -184,7 +184,7 @@ public class GreenFairy : MonoBehaviour
         {
             track = 2;
             oneItem = false;
-            d.SetDialogue("wrong item so try again text here");
+            d.SetDialogue("Agh, you still haven't found it? None of these options are right!");
         }
         
     }
@@ -203,7 +203,7 @@ public class GreenFairy : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Ah finally! Just what I needed. Thanks for that. Oh yeah, here's the sword, should be able to unlock the door now. Sorry, didn't mean to trap you in here, I'm so used to flying out I forget others don't have wings!", creature.GetPercent(), creature.GetProgress());
         }
         
     }

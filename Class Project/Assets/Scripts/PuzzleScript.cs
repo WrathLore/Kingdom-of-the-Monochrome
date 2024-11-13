@@ -48,7 +48,7 @@ public class PuzzleScript : MonoBehaviour
         piecesCorrect = 0;//starting a new game, so should be at 0
     
         timerText.SetActive(true);
-        StartCoroutine(timer.CountDownRoutine());
+        StartCoroutine(timer.CountDownRoutine("puzzle"));
     }
 
     Vector2Int GetDimensions(Texture2D jigsawTexture, int difficulty)
@@ -71,8 +71,6 @@ public class PuzzleScript : MonoBehaviour
             dimensions.x = difficulty;
             dimensions.y = difficulty;
         }
-
-
 
         return dimensions;
     }

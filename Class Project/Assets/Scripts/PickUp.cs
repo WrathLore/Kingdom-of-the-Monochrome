@@ -13,8 +13,17 @@ public class PickUp : MonoBehaviour
     [SerializeField] string questObject;//public so that can use it in player input controller
     public bool pickedUp = false; //use to tell if item has been picked up now
     public bool onItem = false;
+    [SerializeField] bool fairy = false;
+    [SerializeField] bool devout = false;
 
     [SerializeField] GreenFairy greenFairy;
+    [SerializeField] GreenDevout greenDevout;
+
+    void Awake()
+    {
+        greenFairy = FindObjectOfType<GreenFairy>();
+        greenDevout = FindObjectOfType<GreenDevout>();
+    }
 
     void Update()
     {
@@ -35,7 +44,7 @@ public class PickUp : MonoBehaviour
 
     public void PickUpItem()
     {
-        if(greenFairy != null)
+        if(greenFairy != null && fairy)
         {
             if(!greenFairy.oneItem)
             {
@@ -45,6 +54,39 @@ public class PickUp : MonoBehaviour
                 onItem = false;
                 pickedUp = true;
                 item.SetActive(false);
+            }
+        }
+        else if(greenDevout != null && devout)
+        {
+            if(this.CompareTag("Bauble") && !greenDevout.bauble)
+            {
+                greenDevout.bauble = true;
+                greenDevout.itemsPicked++;
+                greenDevout.baubleItem = questObject;
+                onItem = false;
+                pickedUp = true;
+                item.SetActive(false);
+
+            }
+            if(this.CompareTag("Statue") && !greenDevout.statue)
+            {
+                greenDevout.statue = true;
+                greenDevout.itemsPicked++;
+                greenDevout.statueItem = questObject;
+                onItem = false;
+                pickedUp = true;
+                item.SetActive(false);
+
+            }
+            if(this.CompareTag("Tower") && !greenDevout.tower)
+            {
+                greenDevout.tower = true;
+                greenDevout.itemsPicked++;
+                greenDevout.towerItem = questObject;
+                onItem = false;
+                pickedUp = true;
+                item.SetActive(false);
+
             }
         }
         else

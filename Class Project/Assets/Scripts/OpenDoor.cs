@@ -12,7 +12,7 @@ public class OpenDoor : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.O))
+        if(Input.GetKeyDown(KeyCode.U))
         {
             if(onDoor)
             {
