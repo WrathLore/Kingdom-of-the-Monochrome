@@ -51,9 +51,10 @@ public class GreenDevout : MonoBehaviour
         {
             if(!startedQuest)
             {
-                if(turnIn != null)
+                if(turnIn != null && accept != null)
                 {
                     turnIn.gameObject.SetActive(false);
+                    accept.gameObject.SetActive(true);
                 }
                 if(charText != null && fightButton != null && questButton != null)
                 {
@@ -75,14 +76,20 @@ public class GreenDevout : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
+                    accept.gameObject.SetActive(true);
+                    turnIn.gameObject.SetActive(false);
                     d.SetDialogue("You are not from these lands are you? And yet you indulge an old woman while she prays? Many thanks for the prayers. I'm sure you would like to continue on further into these lands, but would you mind helping an old woman one more time?");
                 }
                 else if(track == 1)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Thank you kindly. I've revealed a secret room behind me. I ask that you find the true forms of the objects within and bring them back to me. Try as many times as you want, but be sure to keep an eye on the time please!");
                 }
                 else if(track == 2)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Not enough items I see! Come back with one of each item so I can check them over.");
                 }
 
@@ -112,8 +119,8 @@ public class GreenDevout : MonoBehaviour
             }
             if(accept != null && turnIn != null)
             {
-                accept.onClick.AddListener(Change);
-                turnIn.onClick.AddListener(TurnIn);
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
             }
           
         }
@@ -173,7 +180,6 @@ public class GreenDevout : MonoBehaviour
                 d.DeactivateDialogueBox();
                 accept.onClick.RemoveListener(Change);
                 turnIn.onClick.RemoveListener(TurnIn); 
-
             }
             else
             {

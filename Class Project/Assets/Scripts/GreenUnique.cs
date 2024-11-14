@@ -34,9 +34,10 @@ public class GreenUnique : MonoBehaviour
         {
             if(!startedQuest)
             {
-                if(turnIn != null)
+                if(turnIn != null && accept != null)
                 {
                     turnIn.gameObject.SetActive(false);
+                    accept.gameObject.SetActive(true);
                 }
                 if(charText != null && fightButton != null && questButton != null)
                 {
@@ -58,14 +59,20 @@ public class GreenUnique : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
+                    accept.gameObject.SetActive(true);
+                    turnIn.gameObject.SetActive(false);
                     d.SetDialogue("TEST");
                 }
                 else if(track == 1)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("TEST");
                 }
                 else if(track == 2)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("TEST"); 
                 }
 
@@ -95,8 +102,8 @@ public class GreenUnique : MonoBehaviour
             }
             if(accept != null && turnIn != null)
             {
-                accept.onClick.AddListener(Change);
-                turnIn.onClick.AddListener(TurnIn);
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
             }
           
         }
@@ -118,14 +125,20 @@ public class GreenUnique : MonoBehaviour
     public void Change()
     {
         track = 1;
+        d.DeactivateDialogueBox();
         d.SetDialogue("TEST");
+        accept.gameObject.SetActive(false);
+        turnIn.gameObject.SetActive(true);
 
     }
 
     public void TurnIn()
     {
-        track = 2;
-        d.SetDialogue("TEST");
+        if(track != 3)
+        {
+            track = 2;
+            d.SetDialogue("TEST");
+        }
     }
 
     public void SetName(string name)

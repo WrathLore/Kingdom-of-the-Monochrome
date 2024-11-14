@@ -136,6 +136,19 @@ public class PickUp : MonoBehaviour
 
             if(redDevout != null)
             {
+                if(string.Equals(questObject,"Wrong"))
+                {
+                    //pop up the dialogue box to say wrong item, don't even think about picking that up
+                    redDevout.wrongItem = true;
+                }
+                else
+                {
+                    player.RegisterItem(questObject);
+                    onItem = false;
+                    pickedUp = true;
+                    item.SetActive(false);
+                    //right object, so put it into items
+                }
 
             }
             if(blueDevout != null)

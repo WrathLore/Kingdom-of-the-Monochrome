@@ -43,9 +43,10 @@ public class RedLamb : MonoBehaviour
         {
             if(!startedQuest)
             {
-                if(turnIn != null)
+                if(turnIn != null && accept != null)
                 {
                     turnIn.gameObject.SetActive(false);
+                    accept.gameObject.SetActive(true);
                 }
                 if(charText != null && fightButton != null && questButton != null)
                 {
@@ -65,14 +66,20 @@ public class RedLamb : MonoBehaviour
                 d.SetName(creature.creatureName);//need to reset the name and dialogue in case another one shows up
                 if(track == 0)
                 {
+                    accept.gameObject.SetActive(true);
+                    turnIn.gameObject.SetActive(false);
                     d.SetDialogue("Oh my! I did not see you there! You look like you may be able to help. You see, I have been stuck guarding this location without rest for a long time. However, I wish to find a certain flower that still holds the characteristics of the old land to remind me why I stay here. If you could, would you be willing to find that flower in the field behind me?"); 
                 }
                 else if(track == 1)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Have you found it yet? I have been stuck here for ages, waiting for a chance to look myself, yet it never comes. Remember, it is a flower and a rather unique one at that. Please return once you have found it.");
                 }
                 else if(track == 2)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("I see you you still have not found it. Would you mind looking once more? I require only a single flower from the garden that I am forced to watch over. I see it every so often, but a glimpse of the true colors of the world is not enough anymore. Please, help me bring my colors back.");
                 }  
                 Player.inQuest = true;

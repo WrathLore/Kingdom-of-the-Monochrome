@@ -29,6 +29,7 @@ public class TimerScript : MonoBehaviour
     [SerializeField] float maxTime = 300.0f;
     [SerializeField] Player player;
     [SerializeField] GreenDevout greenDevout;
+    [SerializeField] Dialogue d;
 
     void Awake()
     {
@@ -87,6 +88,23 @@ public class TimerScript : MonoBehaviour
                 currentTime = maxTime;
                 textTimer.text = currentTime.ToString() + " seconds remaining.";
             }
+        }
+    }
+
+    public IEnumerator ClosePopUpRoutine(int time)
+    {
+        while(time > 0)
+        {
+            yield return new WaitForSeconds(1.0f);
+            time--;
+        }
+        if(time == 0)
+        {
+            if(d != null)
+            {
+                d.DeactivateDialogueBox();
+            }
+
         }
     }
 

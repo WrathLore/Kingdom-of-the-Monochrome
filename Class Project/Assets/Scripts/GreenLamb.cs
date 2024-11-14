@@ -37,9 +37,10 @@ public class GreenLamb : MonoBehaviour
         {
             if(!startedQuest)
             {
-                if(turnIn != null)
+                if(turnIn != null && accept != null)
                 {
                     turnIn.gameObject.SetActive(false);
+                    accept.gameObject.SetActive(true);
                 }
                 if(charText != null && fightButton != null && questButton != null)
                 {
@@ -61,14 +62,20 @@ public class GreenLamb : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
+                    accept.gameObject.SetActive(true);
+                    turnIn.gameObject.SetActive(false);
                     d.SetDialogue("Ah, maybe you can help. You see, I have a problem, one of the tiles depicting our history has shattered, leaving behind a grey husk of what it should be. The pieces are still here, but the color is fading fast and I fear it may be lost if they are not placed correctly in time. Would you be willing to help?");
                 }
                 else if(track == 1)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Please hurry! There is not much time left to fix this!");
                 }
                 else if(track == 2)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Please, stop wasting time! Hurry over and place the tile back together.");
                 }
 
@@ -98,8 +105,8 @@ public class GreenLamb : MonoBehaviour
             }
             if(accept != null && turnIn != null)
             {
-                accept.onClick.AddListener(Change);
-                turnIn.onClick.AddListener(TurnIn);
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
             }
           
         }

@@ -439,8 +439,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -545,8 +544,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (9)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -934,6 +932,10 @@ PrefabInstance:
       propertyPath: d
       value: 
       objectReference: {fileID: 304794575}
+    - target: {fileID: -1607511849764153022, guid: 0eeed565013c8da48a6fa2978fd1f343, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1373692769}
     - target: {fileID: -1607511849764153022, guid: 0eeed565013c8da48a6fa2978fd1f343, type: 3}
       propertyPath: accept
       value: 
@@ -1579,6 +1581,7 @@ Transform:
   - {fileID: 769628941}
   - {fileID: 643096131}
   - {fileID: 637805618}
+  - {fileID: 1373692768}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &325271077 stripped
@@ -3232,8 +3235,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4168,8 +4170,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4317,8 +4318,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5374,6 +5374,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4481808565410632398, guid: f7ef457eabd939b4f8dab9bee8208232, type: 3}
   m_PrefabInstance: {fileID: 2041451391}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1216454220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8596013136585851548, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 725775961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1218891621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5564,8 +5575,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5969,8 +5979,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6612,6 +6621,91 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7ef457eabd939b4f8dab9bee8208232, type: 3}
+--- !u!1001 &1373692767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 316084770}
+    m_Modifications:
+    - target: {fileID: 2732316140383722310, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 304794575}
+    - target: {fileID: 2732316140383722310, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 329634557}
+    - target: {fileID: 2732316140383722310, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: textTimer
+      value: 
+      objectReference: {fileID: 1216454220}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 33.909058
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9573054
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.28950176
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048495191751819334, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+      propertyPath: m_Name
+      value: TimerHandler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+--- !u!4 &1373692768 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6679262743792930873, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+  m_PrefabInstance: {fileID: 1373692767}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1373692769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2732316140383722310, guid: a6ff0cdfdc85411458d3446caf58e014, type: 3}
+  m_PrefabInstance: {fileID: 1373692767}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb264d1fc98501c4c9d1069020057f8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1385941720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5557037497559698603, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
@@ -6699,8 +6793,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7298,8 +7391,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cane (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7754608839092165252, guid: 1819b10af866a414dbf6c434ed9d8fca, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

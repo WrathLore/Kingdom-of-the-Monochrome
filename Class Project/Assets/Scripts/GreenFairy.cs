@@ -55,9 +55,10 @@ public class GreenFairy : MonoBehaviour
             lockedDoor.SetActive(true);
             if(!startedQuest)
             {
-                if(turnIn != null)
+                if(turnIn != null && accept != null)
                 {
                     turnIn.gameObject.SetActive(false);
+                    accept.gameObject.SetActive(true);
                 }
                 if(charText != null && fightButton != null && questButton != null)
                 {
@@ -79,14 +80,20 @@ public class GreenFairy : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
+                    accept.gameObject.SetActive(true);
+                    turnIn.gameObject.SetActive(false);
                     d.SetDialogue("Who are you? No, it doesn't matter. You want the sword? Well I want lunch! How's about this? You find me lunch and I'll give you the sword?");
                 }
                 else if(track == 1)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("What you want a hint? Hmmm, something sweet, but not too sweet! Obviously it has to be the right color too!");
                 }
                 else if(track == 2)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Agh, you still haven't found it? None of these options are right!");
                 }
 
@@ -116,8 +123,8 @@ public class GreenFairy : MonoBehaviour
             }
             if(accept != null && turnIn != null)
             {
-                accept.onClick.AddListener(Change);
-                turnIn.onClick.AddListener(TurnIn);
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
             }
           
         }
@@ -172,6 +179,7 @@ public class GreenFairy : MonoBehaviour
                 track = 3;//JUST IN CASE
                 Rewards();
                 questGiver.SetActive(false);
+                player.RegisterItem(sword);
                 foreach(GameObject obj in items)
                 {
                     obj.SetActive(false);

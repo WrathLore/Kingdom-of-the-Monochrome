@@ -48,9 +48,10 @@ public class GreenMaiden : MonoBehaviour
         {
             if(!startedQuest)
             {
-                if(turnIn != null)
+                if(turnIn != null && accept != null)
                 {
                     turnIn.gameObject.SetActive(false);
+                    accept.gameObject.SetActive(true);
                 }
                 if(charText != null && fightButton != null && questButton != null)
                 {
@@ -72,14 +73,20 @@ public class GreenMaiden : MonoBehaviour
                 d.SetName(creature.creatureName);
                 if(track == 0)
                 {
+                    accept.gameObject.SetActive(true);
+                    turnIn.gameObject.SetActive(false);
                     d.SetDialogue("Oh, hello. My apologies I was distraught over the hardships plauging my people. I find myself in quite the predicament as others aim to hunt me down for the sins and wrongdoings of my father. I fear they are close, lurking in the shadows with one last desperate attempt to try to slay me. WOuld you help protect me please?");
                 }
                 else if(track == 1)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Oh thank you! I fear they are closing in though, you may want to keep an eye out now!");
                 }
                 else if(track == 2)
                 {
+                    accept.gameObject.SetActive(false);
+                    turnIn.gameObject.SetActive(true);
                     d.SetDialogue("Please, for both our sakes, focus on the task at hand!");
                 }
             }
@@ -108,8 +115,8 @@ public class GreenMaiden : MonoBehaviour
             }
             if(accept != null && turnIn != null)
             {
-                accept.onClick.AddListener(Change);
-                turnIn.onClick.AddListener(TurnIn);
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
             }
           
         }
