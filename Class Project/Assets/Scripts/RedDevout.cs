@@ -27,6 +27,12 @@ public class RedDevout : MonoBehaviour
     [SerializeField] string fight = "Continue forward";//sort of based on beauty and the beast here, help the old woman out or risk being annihilated
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] string cane = "Red Cane";//to make this easier on me, for now just making it so a bunch of canes spawn in, but only one can be picked up, ie only one has a box collider right now
+    //finish off everything else, then maybe come back and touch up on this one
+    //if able to come back, maybe keep something with the only able to pick up one
+    //but if trying to pick up the wrong one, it prompts the dialogue box to pop up and the character to remark on it being the wrong one
+    //could have list of strings to say and pick a random one each time the wrong cane is chosen
+    [SerializeField] GameObject caneObjects;
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
@@ -69,11 +75,11 @@ public class RedDevout : MonoBehaviour
                 }
             }
 
-            if(accept != null)
+            if(accept != null && turnIn != null)
             {
                 accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
             }
-            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
@@ -92,8 +98,11 @@ public class RedDevout : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
-            accept.onClick.RemoveListener(Change);
-            turnIn.onClick.RemoveListener(TurnIn);
+            if(accept != null && turnIn != null)
+            {
+                accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
+            }
           
         }
     }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6709772280356758757
+--- !u!1 &2928372346109218790
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9118970826411695704}
-  - component: {fileID: 5437595677114312626}
-  - component: {fileID: 8501702055406504980}
-  - component: {fileID: 3066674911784670571}
+  - component: {fileID: 1049553236914226685}
+  - component: {fileID: 463046129569593556}
+  - component: {fileID: 7754608839092165252}
+  - component: {fileID: 2639879936024853320}
   m_Layer: 0
-  m_Name: Red Flower
+  m_Name: Cane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9118970826411695704
+--- !u!4 &1049553236914226685
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709772280356758757}
+  m_GameObject: {fileID: 2928372346109218790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.3, y: -11.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5437595677114312626
+--- !u!212 &463046129569593556
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709772280356758757}
+  m_GameObject: {fileID: 2928372346109218790}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f130754b85a0a9d4d94b5e58b1ded0ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5586cbb342459d94e99bf67f28dbe7c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,50 +86,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8501702055406504980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709772280356758757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dd665e8b4898324681dd5e085af0a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  item: {fileID: 0}
-  questObject: 
-  pickedUp: 0
-  onItem: 0
-  fairy: 0
-  devout: 0
-  maiden: 0
-  lamb: 1
-  unique: 0
-  greenFairy: {fileID: 0}
-  greenDevout: {fileID: 0}
-  greenMaiden: {fileID: 0}
-  greenLamb: {fileID: 0}
-  greenUnique: {fileID: 0}
-  redFairy: {fileID: 0}
-  redDevout: {fileID: 0}
-  redMaiden: {fileID: 0}
-  redLamb: {fileID: 0}
-  redUnique: {fileID: 0}
-  blueFairy: {fileID: 0}
-  blueDevout: {fileID: 0}
-  blueMaiden: {fileID: 0}
-  blueLamb: {fileID: 0}
-  blueUnique: {fileID: 0}
---- !u!61 &3066674911784670571
+--- !u!61 &7754608839092165252
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6709772280356758757}
+  m_GameObject: {fileID: 2928372346109218790}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -168,3 +131,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2639879936024853320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2928372346109218790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd665e8b4898324681dd5e085af0a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  item: {fileID: 0}
+  questObject: 
+  pickedUp: 0
+  onItem: 0
+  fairy: 0
+  devout: 1
+  greenFairy: {fileID: 0}
+  greenDevout: {fileID: 0}

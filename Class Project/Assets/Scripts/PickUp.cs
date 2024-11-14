@@ -15,14 +15,48 @@ public class PickUp : MonoBehaviour
     public bool onItem = false;
     [SerializeField] bool fairy = false;
     [SerializeField] bool devout = false;
+    [SerializeField] bool maiden = false;
+    [SerializeField] bool lamb = false;
+    [SerializeField] bool unique = false;
+    //this way can tell which one specifically they may be involved with
+    //can go back in later and delete the ones that may not be used
+    //or keep them in for further development down the line
 
+    [Header("Characters")]
     [SerializeField] GreenFairy greenFairy;
     [SerializeField] GreenDevout greenDevout;
+    [SerializeField] GreenMaiden greenMaiden;
+    [SerializeField] GreenLamb greenLamb;
+    [SerializeField] GreenUnique greenUnique;
+    [SerializeField] RedFairy redFairy;
+    [SerializeField] RedDevout redDevout;
+    [SerializeField] RedMaiden redMaiden;
+    [SerializeField] RedLamb redLamb;
+    [SerializeField] RedUnique redUnique;
+    [SerializeField] BlueFairy blueFairy;
+    [SerializeField] BlueDevout blueDevout;
+    [SerializeField] BlueMaiden blueMaiden;
+    [SerializeField] BlueLamb blueLamb;
+    [SerializeField] BlueUnique blueUnique;
+
 
     void Awake()
     {
         greenFairy = FindObjectOfType<GreenFairy>();
         greenDevout = FindObjectOfType<GreenDevout>();
+        greenMaiden = FindObjectOfType<GreenMaiden>();
+        greenLamb = FindObjectOfType<GreenLamb>();
+        greenUnique = FindObjectOfType<GreenUnique>();
+        redFairy = FindObjectOfType<RedFairy>();
+        redDevout = FindObjectOfType<RedDevout>();
+        redMaiden = FindObjectOfType<RedMaiden>();
+        redLamb = FindObjectOfType<RedLamb>();
+        redUnique = FindObjectOfType<RedUnique>();
+        blueFairy = FindObjectOfType<BlueFairy>();
+        blueDevout = FindObjectOfType<BlueDevout>();
+        blueMaiden = FindObjectOfType<BlueMaiden>();
+        blueLamb = FindObjectOfType<BlueLamb>();
+        blueUnique = FindObjectOfType<BlueUnique>();
     }
 
     void Update()
@@ -44,58 +78,125 @@ public class PickUp : MonoBehaviour
 
     public void PickUpItem()
     {
-        if(greenFairy != null && fairy)
+        if(fairy)
         {
-            if(!greenFairy.oneItem)
+            if(greenFairy != null)
             {
-                //need to make sure can only pick up one item at a time to not cheat the system
-                greenFairy.oneItem = true;
+                if(!greenFairy.oneItem)
+                {
+                    //need to make sure can only pick up one item at a time to not cheat the system
+                    greenFairy.oneItem = true;
+                    player.RegisterItem(questObject);
+                    onItem = false;
+                    pickedUp = true;
+                    item.SetActive(false);
+                }
+            }
+            if(redFairy != null)
+            {
+
+            }
+            if(blueFairy != null)
+            {
+
+            }
+        }
+        else if(devout)
+        {
+            if(greenDevout != null)
+            {
+                if(this.CompareTag("Bauble") && !greenDevout.bauble)
+                {
+                    greenDevout.bauble = true;
+                    greenDevout.itemsPicked++;
+                    greenDevout.baubleItem = questObject;
+                    onItem = false;
+                    pickedUp = true;
+                    item.SetActive(false);
+                }
+                if(this.CompareTag("Statue") && !greenDevout.statue)
+                {
+                    greenDevout.statue = true;
+                    greenDevout.itemsPicked++;
+                    greenDevout.statueItem = questObject;
+                    onItem = false;
+                    pickedUp = true;
+                    item.SetActive(false);
+                }
+                if(this.CompareTag("Tower") && !greenDevout.tower)
+                {
+                    greenDevout.tower = true;
+                    greenDevout.itemsPicked++;
+                    greenDevout.towerItem = questObject;
+                    onItem = false;
+                    pickedUp = true;
+                    item.SetActive(false);
+                }
+            }
+
+            if(redDevout != null)
+            {
+
+            }
+            if(blueDevout != null)
+            {
+
+            }
+        }
+        else if(lamb)
+        {
+            if(greenLamb != null)
+            {
+
+            }
+            if(redLamb != null)
+            {
+                //only called if onItem is true
                 player.RegisterItem(questObject);
                 onItem = false;
                 pickedUp = true;
                 item.SetActive(false);
             }
+            if(blueLamb != null)
+            {
+
+            }
+
         }
-        else if(greenDevout != null && devout)
+        else if(maiden)
         {
-            if(this.CompareTag("Bauble") && !greenDevout.bauble)
+            if(greenMaiden != null)
             {
-                greenDevout.bauble = true;
-                greenDevout.itemsPicked++;
-                greenDevout.baubleItem = questObject;
+                //only called if onItem is true
+                player.RegisterItem(questObject);
                 onItem = false;
                 pickedUp = true;
                 item.SetActive(false);
-
             }
-            if(this.CompareTag("Statue") && !greenDevout.statue)
+            if(redMaiden != null)
             {
-                greenDevout.statue = true;
-                greenDevout.itemsPicked++;
-                greenDevout.statueItem = questObject;
-                onItem = false;
-                pickedUp = true;
-                item.SetActive(false);
 
             }
-            if(this.CompareTag("Tower") && !greenDevout.tower)
+            if(blueMaiden != null)
             {
-                greenDevout.tower = true;
-                greenDevout.itemsPicked++;
-                greenDevout.towerItem = questObject;
-                onItem = false;
-                pickedUp = true;
-                item.SetActive(false);
 
             }
+            
         }
-        else
+        else if(unique)
         {
-            //only called if onItem is true
-            player.RegisterItem(questObject);
-            onItem = false;
-            pickedUp = true;
-            item.SetActive(false);
+            if(greenUnique != null)
+            {
+
+            }
+            if(redUnique != null)
+            {
+
+            }
+            if(blueUnique != null)
+            {
+
+            }
         }
     }
 

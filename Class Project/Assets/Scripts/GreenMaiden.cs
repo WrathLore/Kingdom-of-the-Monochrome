@@ -83,11 +83,11 @@ public class GreenMaiden : MonoBehaviour
                     d.SetDialogue("Please, for both our sakes, focus on the task at hand!");
                 }
             }
-            if(accept != null)
+            if(accept != null && turnIn != null)
             {
                 accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
             }
-            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
@@ -106,8 +106,11 @@ public class GreenMaiden : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
-            accept.onClick.RemoveListener(Change);
-            turnIn.onClick.RemoveListener(TurnIn);
+            if(accept != null && turnIn != null)
+            {
+                accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
+            }
           
         }
     }

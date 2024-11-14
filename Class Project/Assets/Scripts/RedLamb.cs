@@ -78,14 +78,11 @@ public class RedLamb : MonoBehaviour
                 Player.inQuest = true;
             }
 
-            if(accept != null)
+            if(accept != null && turnIn != null)
             {
                 accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
             }
-            turnIn.onClick.AddListener(TurnIn);
-            
-            //should be something like above but doesn't seem to be working
-            //look more into this later, otherwise maybe ask teacher about it
         }
     }
 
@@ -104,8 +101,11 @@ public class RedLamb : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
-            accept.onClick.RemoveListener(Change);
-            turnIn.onClick.RemoveListener(TurnIn);
+            if(accept != null && turnIn != null)
+            {
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
+            }
           
         }
     }

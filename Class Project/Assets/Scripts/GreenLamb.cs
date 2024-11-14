@@ -73,11 +73,11 @@ public class GreenLamb : MonoBehaviour
                 }
 
             }
-            if(accept != null)
+            if(accept != null && turnIn != null)
             {
                 accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
             }
-            turnIn.onClick.AddListener(TurnIn);
         }
     }
 
@@ -96,8 +96,11 @@ public class GreenLamb : MonoBehaviour
             {
                 d.DeactivateDialogueBox();
             }
-            accept.onClick.RemoveListener(Change);
-            turnIn.onClick.RemoveListener(TurnIn);
+            if(accept != null && turnIn != null)
+            {
+                accept.onClick.AddListener(Change);
+                turnIn.onClick.AddListener(TurnIn);
+            }
           
         }
     }

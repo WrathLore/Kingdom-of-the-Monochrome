@@ -264,8 +264,24 @@ MonoBehaviour:
   onItem: 0
   fairy: 0
   devout: 0
+  maiden: 1
+  lamb: 0
+  unique: 0
   greenFairy: {fileID: 0}
   greenDevout: {fileID: 0}
+  greenMaiden: {fileID: 0}
+  greenLamb: {fileID: 0}
+  greenUnique: {fileID: 0}
+  redFairy: {fileID: 0}
+  redDevout: {fileID: 0}
+  redMaiden: {fileID: 0}
+  redLamb: {fileID: 0}
+  redUnique: {fileID: 0}
+  blueFairy: {fileID: 0}
+  blueDevout: {fileID: 0}
+  blueMaiden: {fileID: 0}
+  blueLamb: {fileID: 0}
+  blueUnique: {fileID: 0}
 --- !u!61 &55157924
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5133,8 +5149,24 @@ MonoBehaviour:
   onItem: 0
   fairy: 1
   devout: 0
+  maiden: 0
+  lamb: 0
+  unique: 0
   greenFairy: {fileID: 1345012859}
   greenDevout: {fileID: 0}
+  greenMaiden: {fileID: 0}
+  greenLamb: {fileID: 0}
+  greenUnique: {fileID: 0}
+  redFairy: {fileID: 0}
+  redDevout: {fileID: 0}
+  redMaiden: {fileID: 0}
+  redLamb: {fileID: 0}
+  redUnique: {fileID: 0}
+  blueFairy: {fileID: 0}
+  blueDevout: {fileID: 0}
+  blueMaiden: {fileID: 0}
+  blueLamb: {fileID: 0}
+  blueUnique: {fileID: 0}
 --- !u!212 &1114876272
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6865,8 +6897,24 @@ MonoBehaviour:
   onItem: 0
   fairy: 1
   devout: 0
+  maiden: 0
+  lamb: 0
+  unique: 0
   greenFairy: {fileID: 1345012859}
   greenDevout: {fileID: 0}
+  greenMaiden: {fileID: 0}
+  greenLamb: {fileID: 0}
+  greenUnique: {fileID: 0}
+  redFairy: {fileID: 0}
+  redDevout: {fileID: 0}
+  redMaiden: {fileID: 0}
+  redLamb: {fileID: 0}
+  redUnique: {fileID: 0}
+  blueFairy: {fileID: 0}
+  blueDevout: {fileID: 0}
+  blueMaiden: {fileID: 0}
+  blueLamb: {fileID: 0}
+  blueUnique: {fileID: 0}
 --- !u!212 &1362026331
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8470,8 +8518,24 @@ MonoBehaviour:
   onItem: 0
   fairy: 1
   devout: 0
+  maiden: 0
+  lamb: 0
+  unique: 0
   greenFairy: {fileID: 1345012859}
   greenDevout: {fileID: 0}
+  greenMaiden: {fileID: 0}
+  greenLamb: {fileID: 0}
+  greenUnique: {fileID: 0}
+  redFairy: {fileID: 0}
+  redDevout: {fileID: 0}
+  redMaiden: {fileID: 0}
+  redLamb: {fileID: 0}
+  redUnique: {fileID: 0}
+  blueFairy: {fileID: 0}
+  blueDevout: {fileID: 0}
+  blueMaiden: {fileID: 0}
+  blueLamb: {fileID: 0}
+  blueUnique: {fileID: 0}
 --- !u!212 &1570019629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9638,8 +9702,24 @@ MonoBehaviour:
   onItem: 0
   fairy: 1
   devout: 0
+  maiden: 0
+  lamb: 0
+  unique: 0
   greenFairy: {fileID: 1345012859}
   greenDevout: {fileID: 0}
+  greenMaiden: {fileID: 0}
+  greenLamb: {fileID: 0}
+  greenUnique: {fileID: 0}
+  redFairy: {fileID: 0}
+  redDevout: {fileID: 0}
+  redMaiden: {fileID: 0}
+  redLamb: {fileID: 0}
+  redUnique: {fileID: 0}
+  blueFairy: {fileID: 0}
+  blueDevout: {fileID: 0}
+  blueMaiden: {fileID: 0}
+  blueLamb: {fileID: 0}
+  blueUnique: {fileID: 0}
 --- !u!212 &1757147165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10640,8 +10720,24 @@ MonoBehaviour:
   onItem: 0
   fairy: 1
   devout: 0
+  maiden: 0
+  lamb: 0
+  unique: 0
   greenFairy: {fileID: 1345012859}
   greenDevout: {fileID: 0}
+  greenMaiden: {fileID: 0}
+  greenLamb: {fileID: 0}
+  greenUnique: {fileID: 0}
+  redFairy: {fileID: 0}
+  redDevout: {fileID: 0}
+  redMaiden: {fileID: 0}
+  redLamb: {fileID: 0}
+  redUnique: {fileID: 0}
+  blueFairy: {fileID: 0}
+  blueDevout: {fileID: 0}
+  blueMaiden: {fileID: 0}
+  blueLamb: {fileID: 0}
+  blueUnique: {fileID: 0}
 --- !u!212 &2019145837
 SpriteRenderer:
   m_ObjectHideFlags: 0
