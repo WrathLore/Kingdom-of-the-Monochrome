@@ -193,7 +193,7 @@ public class BlueFairy : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Thank you so much! I don't think I could have found it without your help, so thank you once again! Here, have this, it's just a small token of my gratitude.", creature.GetPercent(), creature.GetProgress());
         }
         
     }

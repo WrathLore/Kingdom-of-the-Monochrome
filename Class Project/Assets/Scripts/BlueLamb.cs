@@ -127,6 +127,10 @@ public class BlueLamb : MonoBehaviour
 
     public void Change()
     {
+        //for this one, it'll be a puzzle, put together the bridge once more
+        //will block off the land into 2 until you either do the puzzle or fight them
+        //if fight them, then debris will fill the hole and can continue that way
+        //otherwise will be an obstacle
         track = 1;
         d.DeactivateDialogueBox();
         d.SetDialogue("TEST");
