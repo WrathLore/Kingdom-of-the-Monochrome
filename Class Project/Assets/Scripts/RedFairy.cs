@@ -26,6 +26,9 @@ public class RedFairy : MonoBehaviour
     [SerializeField] string fight = "Cut a path forward to continue";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] GameObject puzzleBase;
+    public string puzzle = "Saved Berry Field";
+    [SerializeField] PuzzleScript puzzleScript;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -60,19 +63,19 @@ public class RedFairy : MonoBehaviour
                 {
                     accept.gameObject.SetActive(true);
                     turnIn.gameObject.SetActive(false);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Ah! Help? Much appreciated! Though I don't really need help gathering the berries, there is quite a bit of work to be done with finding the right colors. As you can see much of the color has been leached, so would you mind bringing it back? You seem quite skilled with colors so Ihave no doubt you'll be able to help!");
                 }
                 else if(track == 1)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Thank you kindly! Would you mind starting soon? There's only so long these colors will stay so vibrant after all, and I fear the next chance will be far too late!");
                 }
                 else if(track == 2)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");  
+                    d.SetDialogue("Focus on the task at hand! The color is draining too fast for small talk!");  
                 }
 
             }
@@ -117,15 +120,17 @@ public class RedFairy : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("Ah! Help? Much appreciated! Though I don't really need help gathering the berries, there is quite a bit of work to be done with finding the right colors. As you can see much of the color has been leached, so would you mind bringing it back? You seem quite skilled with colors so Ihave no doubt you'll be able to help!");
         
     }
 
     public void Change()
     {
         track = 1;
+        puzzleBase.SetActive(true);
+        puzzleScript.StartGame();
         d.DeactivateDialogueBox();
-        d.SetDialogue("TEST");
+        d.SetDialogue("Thank you kindly! Would you mind starting soon? There's only so long these colors will stay so vibrant after all, and I fear the next chance will be far too late!");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
 
@@ -133,10 +138,26 @@ public class RedFairy : MonoBehaviour
 
     public void TurnIn()
     {
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(puzzle,item))
+            {
+                track = 3;
+                puzzleScript.FinishGame();
+                puzzleBase.SetActive(false);
+                Rewards();
+                questGiver.SetActive(false);
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
+        }
         if(track != 3)
         {
             track = 2;
-            d.SetDialogue("TEST");
+            d.SetDialogue("Focus on the task at hand! The color is draining too fast for small talk!");
         }
     }
 
@@ -154,7 +175,7 @@ public class RedFairy : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Thank you kindly. I never would have been able to complete such a feat. Maybe you could finally end this horrid curse we live under. Hmm? Curse? Ah, pay no mind to my ramblings, but here, have some of that color for yourself and ... maybe just keep an eye out for any other signs of color and the help you could give them.", creature.GetPercent(), creature.GetProgress());
         }
         
     }

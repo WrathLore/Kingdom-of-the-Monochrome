@@ -159,6 +159,8 @@ public class RedLamb : MonoBehaviour
     public void Quest()
     {
         track = 0;
+        accept.gameObject.SetActive(true);
+        turnIn.gameObject.SetActive(false);
         creature.choice.SetActive(false);
         startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
         Player.inQuest = true;

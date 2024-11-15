@@ -119,6 +119,8 @@ public class GreenLamb : MonoBehaviour
         //have a puzzle set up, grey pops into existence
         //have to layer the colored pieces on top to finish the puzzle
         //once done, then can have the finished puzzle
+        accept.gameObject.SetActive(true);
+        turnIn.gameObject.SetActive(false);
         creature.choice.SetActive(false);
         startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
         Player.inQuest = true;

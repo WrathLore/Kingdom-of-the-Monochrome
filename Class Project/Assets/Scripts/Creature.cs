@@ -259,6 +259,10 @@ public class Creature : MonoBehaviour
                     {
                         player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<GreenDevout>().key);
                     }
+                    else if(string.Equals(creatureName, "Red Maiden"))
+                    {
+                        player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<RedMaiden>().fightPrize);
+                    }
                     else
                     {
                         player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress());
