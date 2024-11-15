@@ -27,7 +27,6 @@ public class GreenDevout : MonoBehaviour
     [SerializeField] string fight = "Steal the key";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
-    [SerializeField] GameObject shrineDoor;
     [SerializeField] GameObject secretRoom;
     public string key = "Shrine Key";
     public int itemsPicked = 0;//needs to be 3 to check with finishing the quest

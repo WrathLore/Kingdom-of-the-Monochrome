@@ -29,11 +29,13 @@ public class TimerScript : MonoBehaviour
     [SerializeField] float maxTime = 300.0f;
     [SerializeField] Player player;
     [SerializeField] GreenDevout greenDevout;
+    [SerializeField] BlueFairy blueFairy;
     [SerializeField] Dialogue d;
 
     void Awake()
     {
         greenDevout = FindObjectOfType<GreenDevout>();
+        blueFairy = FindObjectOfType<BlueFairy>();
     }
 
     void Start()
@@ -82,6 +84,28 @@ public class TimerScript : MonoBehaviour
             {//should just have to do this for the green devout since everything is being done through the green devout script
                 player.questFailed = true;
                 player.Defeat();
+                currentTime = maxTime;
+            }
+            else
+            {
+                currentTime = maxTime;
+                textTimer.text = currentTime.ToString() + " seconds remaining.";
+            }
+        }
+        else if(blueFairy != null && string.Equals(currentTimer,"blueFairy"))
+        {
+            while(currentTime > 0 && !blueFairy.finishedQuest)
+            {
+                yield return new WaitForSeconds(1.0f);
+                currentTime--;
+                textTimer.text = currentTime.ToString() + " seconds remaining.";
+            }
+
+            if(currentTime == 0)
+            {
+                player.questFailed = true;
+                player.Defeat();
+                currentTime = maxTime;
             }
             else
             {

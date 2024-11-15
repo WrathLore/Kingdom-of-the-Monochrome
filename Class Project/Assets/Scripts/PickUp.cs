@@ -98,7 +98,10 @@ public class PickUp : MonoBehaviour
             }
             if(blueFairy != null)
             {
-
+                player.RegisterItem(questObject);
+                onItem = false;
+                pickedUp = true;
+                item.SetActive(false);
             }
         }
         else if(devout)

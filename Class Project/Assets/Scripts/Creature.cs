@@ -19,6 +19,7 @@ public class Creature : MonoBehaviour
     public GameObject choice;
     [SerializeField] GameObject questButton;
     [SerializeField] GameObject fightButton;
+    [SerializeField] GameObject mazeBlock; //use for any blockage that may be in a quest to turn off in case fight is chosen instead
     public static string actionTaken = "Waiting for the first move..."; //keep track of action taken in fight
     [Header("Items")]
     [SerializeField] public int healthPotions = 1;
@@ -241,6 +242,10 @@ public class Creature : MonoBehaviour
     {
         if(GetDeathStatus())//only continue if creature is dead
         {
+            if(mazeBlock != null)
+            {
+                mazeBlock.SetActive(false);
+            }
             //on defeat, show victory screen(press away with c)
             if(player != null && creature != null)
             {
