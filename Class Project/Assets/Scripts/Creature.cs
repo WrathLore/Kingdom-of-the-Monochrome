@@ -268,6 +268,12 @@ public class Creature : MonoBehaviour
                     {
                         player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<RedMaiden>().fightPrize);
                     }
+                    else if(string.Equals(creatureName, "Blue Lamb"))
+                    {
+                        creature.GetComponent<BlueLamb>().destroyedBridge.SetActive(true);
+                        Destroy(creature.GetComponent<BlueLamb>().water);
+                        player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<BlueLamb>().junk + ". It's rather shaky, but hopefully you can still get across.");
+                    }
                     else
                     {
                         player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress());

@@ -27,6 +27,13 @@ public class BlueLamb : MonoBehaviour
     [SerializeField] string fight = "Force them to fix the bridge";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] GameObject puzzleBase;
+    public string puzzle = "Fixed Bridge";
+    public string junk = "Unfixed Bridge";
+    [SerializeField] PuzzleScript puzzleScript;
+    [SerializeField] public GameObject water;
+    [SerializeField] GameObject bridge;
+    [SerializeField] public GameObject destroyedBridge;
 
 
     void OnTriggerEnter2D(Collider2D other)
@@ -132,6 +139,8 @@ public class BlueLamb : MonoBehaviour
         //if fight them, then debris will fill the hole and can continue that way
         //otherwise will be an obstacle
         track = 1;
+        puzzleBase.SetActive(true);
+        puzzleScript.StartGame();
         d.DeactivateDialogueBox();
         d.SetDialogue("TEST");
         accept.gameObject.SetActive(false);
@@ -141,6 +150,24 @@ public class BlueLamb : MonoBehaviour
 
     public void TurnIn()
     {
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(puzzle,item))
+            {
+                track = 3;
+                puzzleScript.FinishGame();
+                puzzleBase.SetActive(false);
+                Rewards();
+                questGiver.SetActive(false);
+                bridge.SetActive(true);
+                Destroy(water);
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
+        }
         if(track != 3)
         {
             track = 2;
