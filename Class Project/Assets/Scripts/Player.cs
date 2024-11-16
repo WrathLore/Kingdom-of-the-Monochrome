@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     //c# does have bool values unlike with c
     [Header("Items")] //may or may not do static for these, may just have them show up starting as this in each area
     public static int healthPotions = 2;
+    public static int maxHealthPotions = 2;
     public static int green = 0;
     public static int blue = 0;
     public static int red = 0;
@@ -145,6 +146,10 @@ public class Player : MonoBehaviour
 
         if(!string.IsNullOrEmpty(scene))
         {
+            if(progress == 100 && string.Equals(scene,"GameHub"))
+            {
+                LevelFinished();
+            }
             //then change scene
             SceneManager.LoadScene(scene);
         }
@@ -208,12 +213,12 @@ public class Player : MonoBehaviour
 
     public void IncreaseMaxHealth()
     {
-        maxHealthPoints += 20; //give 20 more points of health per level finished
+        maxHealthPoints += 20*fightInLevel; //give 20 more points of health per enemy defeated per level finished
     }
 
     public void IncreaseStrength()
     {
-        strength += 2; //increase strength by 2 per level finished
+        strength += 2*fightInLevel; //increase strength by 2 per enemy defeated per level finished
     }
 
     public void IncreaseDodge()
@@ -320,6 +325,7 @@ public class Player : MonoBehaviour
     public void PickUpPotions(int extra)
     {
         healthPotions += extra;
+        maxHealthPotions += extra;
     }
 
     public void IncreaseColor(int r, int g, int b)
@@ -405,6 +411,8 @@ public class Player : MonoBehaviour
     {
         if(isDead || questFailed)
         {
+            currentHealthPoints = maxHealthPoints;
+
             questFailed = false;
             isDead = false;//just in case I'll set these to false as well
             hit = 0;
@@ -448,6 +456,7 @@ public class Player : MonoBehaviour
         IncreaseMaxHealth();
         IncreaseStrength();
         SetColor();
+        healthPotions = maxHealthPotions;
     }
 
     public void BlockProjectiles()

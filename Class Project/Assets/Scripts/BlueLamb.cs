@@ -69,19 +69,19 @@ public class BlueLamb : MonoBehaviour
                 {
                     accept.gameObject.SetActive(true);
                     turnIn.gameObject.SetActive(false);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Oh hello. Sorry for this awful scene in front of you and I'm sorry to ask this, but would you be willing to help? I'm afraid that much has been going wrong around here. Though, I'm sure you could tell from the bramble patch my friend has been dealing with. I wonder if they ever found that locket I gave them.");
                 }
                 else if(track == 1)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Thank you, your help is much appreciated. Would you mind helping me put together a new bridge? I'm afraid that there is not much I can do by myself with these problems. It needs a keener eye and a more delicate touch than one I can lend.");
                 }
                 else if(track == 2)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");  
+                    d.SetDialogue("Perfect, now please, finish as quickly as you can please.");  
                 }
 
             }
@@ -128,7 +128,7 @@ public class BlueLamb : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("Oh hello. Sorry for this awful scene in front of you. I'm afraid that much has been going wrong around here. Though, I'm sure you could tell from the bramble patch my friend has been dealing with. I wonder if they ever found that locket I gave them.");
         
     }
 
@@ -142,7 +142,7 @@ public class BlueLamb : MonoBehaviour
         puzzleBase.SetActive(true);
         puzzleScript.StartGame();
         d.DeactivateDialogueBox();
-        d.SetDialogue("TEST");
+        d.SetDialogue("Thank you, your help is much appreciated. Would you mind helping me put together a new bridge? I'm afraid that there is not much I can do by myself with these problems. It needs a keener eye and a more delicate touch than one I can lend.");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
 
@@ -171,7 +171,7 @@ public class BlueLamb : MonoBehaviour
         if(track != 3)
         {
             track = 2;
-            d.SetDialogue("TEST");
+            d.SetDialogue("Perfect, now please, finish as quickly as you can please.");
         }
     }
 
@@ -189,7 +189,7 @@ public class BlueLamb : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Please, allow me to place the bridge. I would hate for you to leave empty handed, so please, take this as a small token of my gratitude. Safe travels!", creature.GetPercent(), creature.GetProgress());
         }
         
     }

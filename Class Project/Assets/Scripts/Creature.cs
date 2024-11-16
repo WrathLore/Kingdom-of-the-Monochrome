@@ -152,7 +152,7 @@ public class Creature : MonoBehaviour
 
     public int DropPotions()
     {
-        return 1; //work on this, return between 1 to 5 health potions when called
+        return Random.Range(1,4); //work on this, return between 1 to 5 health potions when called
     }
 
     public int GetRed()
@@ -273,6 +273,10 @@ public class Creature : MonoBehaviour
                         creature.GetComponent<BlueLamb>().destroyedBridge.SetActive(true);
                         Destroy(creature.GetComponent<BlueLamb>().water);
                         player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<BlueLamb>().junk + ". It's rather shaky, but hopefully you can still get across.");
+                    }
+                    else if(string.Equals(creatureName, "Blue Devout"))
+                    {
+                        player.Victory(GetRed(),GetGreen(),GetBlue(),p, GetPercent(), GetProgress(), false, creature.GetComponent<BlueDevout>().fightPrize);
                     }
                     else
                     {

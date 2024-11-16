@@ -24,6 +24,7 @@ public class RedUnique : MonoBehaviour
     [Header("Writing")]
     [SerializeField] string text = "A winged entity blocks the way forward. A greatsword held with ease in one hand as they stand at the ready; wings splayed and muscles tensed. They stand in the middle of a small circle and it seems there is no way out without a fight.";
     [SerializeField] string quest = "Step into the circle";//dodge projectiles from the figure, maybe something with a time limit as well
+    //might do what was originally planned for the blue maiden with the whirling whips. Blue maiden is now another puzzle instead to make it easier on the time limit.
     [SerializeField] string fight = "Attack from afar";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;

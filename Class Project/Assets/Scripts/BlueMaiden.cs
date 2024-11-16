@@ -27,6 +27,9 @@ public class BlueMaiden : MonoBehaviour
     [SerializeField] string fight = "Wait for an opening and then charge forward to take the whips.";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] GameObject puzzleBase;
+    public string puzzle = "Sculpted Field";
+    [SerializeField] PuzzleScript puzzleScript;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -61,19 +64,19 @@ public class BlueMaiden : MonoBehaviour
                 {
                     accept.gameObject.SetActive(true);
                     turnIn.gameObject.SetActive(false);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Oh dear, I didn't see you there! Please be careful now. Though, if you'd like, maybe you could help me finish up my artwork? I was inspired by the water to make this field as perfect as can be!");
                 }
                 else if(track == 1)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Oh thank you ever so much! Though please be quick, I would hate to accidentally harm you in the process.");
                 }
                 else if(track == 2)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");   
+                    d.SetDialogue("Oh my, watch out! Please be careful while working, don't want to risk an injury after all!");   
                 }
 
             }
@@ -120,24 +123,42 @@ public class BlueMaiden : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("Oh dear, I didn't see you there! Please be careful now. Though, if you'd like, maybe you could help me finish up my artwork? I was inspired by the water to make this field as perfect as can be!");
     }
 
     public void Change()
     {
         track = 1;
+        puzzleBase.SetActive(true);
+        puzzleScript.StartGame();
         d.DeactivateDialogueBox();
-        d.SetDialogue("TEST");
+        d.SetDialogue("Oh thank you ever so much! Though please be quick, I would hate to accidentally harm you in the process.");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
     }
 
     public void TurnIn()
     {
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(puzzle,item))
+            {
+                track = 3;
+                puzzleScript.FinishGame();
+                puzzleBase.SetActive(false);
+                Rewards();
+                questGiver.SetActive(false);
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn); 
+                break;//need to break from the loop here  
+            }
+            
+        }
         if(track != 3)
         {
             track = 2;
-            d.SetDialogue("TEST");
+            d.SetDialogue("Oh my, watch out! Please be careful while working, don't want to risk an injury after all!");
         }
     }
 
@@ -155,7 +176,7 @@ public class BlueMaiden : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"It looks amazing! Please, take this as gratitude and make sure to have fun out there! There's always room for improvement, but also room for more fun!", creature.GetPercent(), creature.GetProgress());
         }
         
     }

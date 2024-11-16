@@ -47,6 +47,8 @@ public class TimerScript : MonoBehaviour
     //comment 2 was where the main idea for this coroutine came from
     public IEnumerator CountDownRoutine(string currentTimer)
     {
+        currentTime = maxTime; //need to reset for each new timer
+        textTimer.text = currentTime.ToString() + " seconds remaining.";
         if(puzzle != null && string.Equals(currentTimer, "puzzle"))
         {
             while(currentTime > 0 && !puzzle.finishedPuzzle)
@@ -63,6 +65,7 @@ public class TimerScript : MonoBehaviour
                 puzzle.FinishGame();//destroy the pieces just in case
                 player.questFailed = true;
                 player.Defeat();
+                currentTime = maxTime;
             }
             else
             {

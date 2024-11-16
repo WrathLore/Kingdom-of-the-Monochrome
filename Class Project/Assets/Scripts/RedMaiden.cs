@@ -166,7 +166,7 @@ public class RedMaiden : MonoBehaviour
                 PlayerInputController.inFight = true;//cannot move player while in fight
             }
         }
-        else if(Player.killed < Player.quest)
+        else
         {
             //activate the rewards method
             Rewards();

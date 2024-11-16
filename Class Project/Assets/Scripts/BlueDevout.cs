@@ -20,18 +20,25 @@ public class BlueDevout : MonoBehaviour
     //[SerializeField] PickUp pick;
     [SerializeField] Button accept;//these to set the onClick listener for the buttons
     [SerializeField] Button turnIn;
-    int track = 0;
+    public int track = 4;
     [Header("Writing")]
     [SerializeField] string text = "An old devout sits before you. She looks at you suspicously, hands tightening on her cane as you step closer. What do you do?";
-    [SerializeField] string quest = "Speak from a distance";
+    [SerializeField] string quest = "Speak from a distance";//this one will be same set up as red maiden only in this case, can only get there after doing at least 2 quests
     [SerializeField] string fight = "Continue forward";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    string questPrize = "Worn Cane";
+    public string fightPrize = "Broken Cane";
+    [SerializeField] GameObject fightPanel;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
+            if((Player.killed != 0 || Player.quest != 0) && track == 4)
+            {
+                track = 0;
+            }
             if(!startedQuest)
             {
                 if(turnIn != null && accept != null)
@@ -61,19 +68,19 @@ public class BlueDevout : MonoBehaviour
                 {
                     accept.gameObject.SetActive(true);
                     turnIn.gameObject.SetActive(false);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("I see you have accomplished something then. Come closer dearie and let me get a good look at you.");
                 }
                 else if(track == 1)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Ah. I see. Well, there is only one thing left to do now, isn't there?");
                 }
-                else if(track == 2)
+                else if(track == 4)
                 {
                     accept.gameObject.SetActive(false);
-                    turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");  
+                    turnIn.gameObject.SetActive(false);
+                    d.SetDialogue("Hmph are you really trying to talk right now? Don't you have more important things to do than talk to an old crone such as I?");  
                 }
 
             }
@@ -113,33 +120,61 @@ public class BlueDevout : MonoBehaviour
 
     public void Quest()
     {
-        track = 0;
-        accept.gameObject.SetActive(true);
-        turnIn.gameObject.SetActive(false);
-        creature.choice.SetActive(false);
-        startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
-        Player.inQuest = true;
-        creature.interactedWith = true;
-        d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        if(track == 4)
+        {
+            accept.gameObject.SetActive(false);
+            turnIn.gameObject.SetActive(false);
+            creature.choice.SetActive(false);
+            startedQuest = true;//don't want to pull up the original text boxes, want the dialogue instead
+            Player.inQuest = true;
+            creature.interactedWith = true;
+            d.SetName(creature.creatureName);
+            d.SetDialogue("Hmph are you really trying to talk right now? Don't you have more important things to do than talk to an old crone such as I?");
+        }
+        if(track == 0)
+        {
+            accept.gameObject.SetActive(true);
+            turnIn.gameObject.SetActive(false);
+            creature.choice.SetActive(false);
+            startedQuest = true;
+            Player.inQuest = true;
+            d.SetName(creature.creatureName);
+            d.SetDialogue("I see you have accomplished something then. Come closer dearie and let me get a good look at you.");
+        }
         
     }
 
     public void Change()
     {
         track = 1;
-        d.DeactivateDialogueBox();
-        d.SetDialogue("TEST");
+        d.SetDialogue("Ah. I see. Well, there is only one thing left to do now, isn't there?");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
     }
 
     public void TurnIn()
     {
-        if(track != 3)
+         if(Player.killed > Player.quest)
         {
-            track = 2;
-            d.SetDialogue("TEST");
+            //activate the fight script
+            if(fightPanel != null)
+            {
+                d.DeactivateDialogueBox();
+                accept.onClick.RemoveListener(Change);
+                turnIn.onClick.RemoveListener(TurnIn);
+                fightPanel.SetActive(true);
+                PlayerInputController.inFight = true;//cannot move player while in fight
+            }
+        }
+        else
+        {
+            //activate the rewards method
+            Rewards();
+            questGiver.SetActive(false);
+            d.DeactivateDialogueBox();
+            player.RegisterItem(questPrize);
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn);
         }
     }
 
@@ -157,7 +192,7 @@ public class BlueDevout : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"Hm, yes. I am sure you shall accomplish much more in the future. I wish you luck and give you this cane as my blessing. I hope you are able to accomplish much more in the future.", creature.GetPercent(), creature.GetProgress());
         }
         
     }
