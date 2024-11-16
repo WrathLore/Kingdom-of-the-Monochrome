@@ -211,7 +211,10 @@ public class PickUp : MonoBehaviour
             }
             if(blueUnique != null)
             {
-
+                player.RegisterItem(questObject);
+                onItem = false;
+                pickedUp = true;
+                Destroy(item); //this will be instatiated in, so want to destroy it once it is picked up
             }
         }
     }
