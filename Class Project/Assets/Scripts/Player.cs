@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
     public bool isAttacking = false;
     public static bool inQuest = false;
     public static bool onCharacter = false;
+    public static bool onCircle = false; //use for red unique, to know if on circle or not
+    public static bool questDodge = false; //use for red unique, so can only go back and forth while true
     [Header("Main Hub Trackers")]
     public static bool isGreen = false;
     public static bool isRed = false;
@@ -358,6 +360,7 @@ public class Player : MonoBehaviour
         IncreaseProgress(prog, p);
         tutorialFight = tutorial;
         IncreaseDodge();
+        hit = 0;
         if(!tutorial)
         {
             IncreaseColor(red,green,blue);//gain the colors
@@ -392,6 +395,7 @@ public class Player : MonoBehaviour
         inQuest = false;//once quest is over, not in quest anymore
         IncreaseProgress(prog, p);
         tutorialQuest = tutorial;
+        hit = 0;
         if(!tutorial)//only want to update this stuff if not tutorial cause otherwise pain for just 2 cases
         {
             IncreaseColor(red,green,blue);
@@ -413,6 +417,8 @@ public class Player : MonoBehaviour
         {
             currentHealthPoints = maxHealthPoints;
 
+            questDodge = false;
+            onCircle = false;
             questFailed = false;
             isDead = false;//just in case I'll set these to false as well
             hit = 0;

@@ -30,6 +30,11 @@ public class ProjectileScript : MonoBehaviour
         {
             MoveTowardsMaiden();
         }
+
+        if(redUnique != null)
+        {
+            MoveDown();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)//if hit the player or green maiden
@@ -50,13 +55,13 @@ public class ProjectileScript : MonoBehaviour
             launcher.GetComponent<ProjectileLauncher>().destroyedProjectiles++;
             Destroy(this.gameObject);
         }
-
-        if(other.CompareTag("Red Unique") && redUnique != null)
-        {//need to put rigidbody on red unique if doing this
-        //may be something with throwing the projectile back at them or maybe just dodging the projectiles to make it easier
+        
+        if(other.CompareTag("Ground"))
+        {
             launcher.GetComponent<ProjectileLauncher>().destroyedProjectiles++;
             Destroy(this.gameObject);
         }
+
     }
 
     public void AimProjectile(Vector3 pos)
@@ -72,5 +77,10 @@ public class ProjectileScript : MonoBehaviour
     public void MoveTowardsMaiden()
     {
         transform.position = Vector2.MoveTowards(transform.position, launcher.transform.position,Time.deltaTime*speed);
+    }
+
+    public void MoveDown()
+    {
+        transform.position += Vector3.down * Time.deltaTime * 7;
     }
 }

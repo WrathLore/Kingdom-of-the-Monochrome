@@ -28,6 +28,26 @@ public class RedUnique : MonoBehaviour
     [SerializeField] string fight = "Attack from afar";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] GameObject dodgeCircle; //if player on this and presses like X, then set Player.dodgeQuest = true and send off circle projectiles
+    [SerializeField] GameObject groundObstacles;
+    [SerializeField] ProjectileLauncher launcher;
+
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.X) && Player.onCircle)
+        {
+            //then lock in movement to only left and right and start launching projectiles
+            dodgeCircle.SetActive(false);
+            Player.onCircle = false;//make sure it doesn't happen again if accidentally pressed X again
+            Player.questDodge = true;
+             StartCoroutine(launcher.WaitRoutine());
+        }
+
+        if(launcher.destroyedProjectiles == launcher.maxProjectiles)
+        {//once all projectiles have been destroyed, reset the movement
+            Player.questDodge = false;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,19 +82,19 @@ public class RedUnique : MonoBehaviour
                 {
                     accept.gameObject.SetActive(true);
                     turnIn.gameObject.SetActive(false);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("The angel stands there impassively, but it readies itself, its wings spreading wide as you approach. It seems to want you to move closer.");
                 }
                 else if(track == 1)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("The circle has fully formed behind you, and the angel seems to point you in that direction. It makes an X with its arms as it looks intently at the circle.");
                 }
                 else if(track == 2)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");  
+                    d.SetDialogue("The angel looks at you in slight confusion and annoyance. Seems they want you to stand on the circle and ready yourself for a trial. (Press X once on the circle)");  
                 }
 
             }
@@ -120,24 +140,37 @@ public class RedUnique : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("The angel stands there impassively, but it readies itself, its wings spreading wide as you approach. It seems to want you to move closer.");
         
     }
 
     public void Change()
     {
         track = 1;
+        groundObstacles.SetActive(true);
+        dodgeCircle.SetActive(true);
         d.DeactivateDialogueBox();
-        d.SetDialogue("TEST");
+        d.SetDialogue("The circle has fully formed behind you, and the angel seems to point you in that direction. It makes an X with its arms as it looks intently at the circle.");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
     }
     public void TurnIn()
     {
+        if(launcher.destroyedProjectiles == launcher.maxProjectiles)
+        {
+            track = 3;
+            Rewards();
+            player.RegisterItem("Red Feather");
+            questGiver.SetActive(false);
+            groundObstacles.SetActive(false);
+            d.DeactivateDialogueBox();
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn); 
+        }
         if(track != 3)
         {
             track = 2;
-            d.SetDialogue("TEST");
+            d.SetDialogue("The angel looks at you in slight confusion and annoyance. Seems they want you to stand on the circle and ready yourself for a trial. (Press X once on the circle)");
         }
     }
 
@@ -155,7 +188,7 @@ public class RedUnique : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"The angel hums in satisfation. It seems you have successfully passed its trial. It slowly approaches and presses its sword to your shoulder as it grants you a reward before taking off into the air, leaving behind only a single red feather.", creature.GetPercent(), creature.GetProgress());
         }
         
     }

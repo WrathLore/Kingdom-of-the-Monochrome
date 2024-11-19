@@ -14,6 +14,7 @@ public class RatAIScript : MonoBehaviour
 
     delegate void AIState();
     AIState currentState;
+    [SerializeField] PlayerAnimationStateChanger a; //since this is where movement is changed, this is where animation is changed
 
 
     //trackers==================================================
@@ -55,6 +56,7 @@ public class RatAIScript : MonoBehaviour
     //use PickUp script for that basically
     void LeftState()
     {
+        a.ChangeAnimationState("Left");
         currentStateString = "Left";
         //if bump into a wall, try going down
         //also if certain amount of time passed without bumping into something go down
@@ -80,11 +82,12 @@ public class RatAIScript : MonoBehaviour
             ChangeState(RightState);
             return;
         }
-        transform.position += Vector3.left * 0.01f;
+        transform.position += Vector3.left * 0.03f;
     }
 
     void RightState()
     {
+        a.ChangeAnimationState("Right");
         currentStateString = "Right";
         //if bump into a wall, try going up
         //also if certain amount of time passed without bumping into something go up
@@ -110,12 +113,13 @@ public class RatAIScript : MonoBehaviour
             ChangeState(LeftState);
             return;
         }
-        transform.position += Vector3.right * 0.01f;
+        transform.position += Vector3.right * 0.03f;
         
     }
 
     void UpState()
     {
+        a.ChangeAnimationState("Up");
         currentStateString = "Up";
         //if bump into a wall, try going left
         //also if certain amount of time passed without bumping into something go left
@@ -141,11 +145,12 @@ public class RatAIScript : MonoBehaviour
             ChangeState(DownState);
             return;
         }
-        transform.position += Vector3.up * 0.01f;
+        transform.position += Vector3.up * 0.03f;
     }
 
     void DownState()
     {
+        a.ChangeAnimationState("Down");
         currentStateString = "Down";
         //if bump into a wall, try going right
         //also if certain amount of time passed without bumping into something go right
@@ -171,7 +176,7 @@ public class RatAIScript : MonoBehaviour
             ChangeState(UpState);
             return;
         }
-        transform.position += Vector3.down * 0.01f;
+        transform.position += Vector3.down * 0.03f;
     }
 
      void AITick()

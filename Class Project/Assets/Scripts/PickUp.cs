@@ -57,6 +57,10 @@ public class PickUp : MonoBehaviour
         blueMaiden = FindObjectOfType<BlueMaiden>();
         blueLamb = FindObjectOfType<BlueLamb>();
         blueUnique = FindObjectOfType<BlueUnique>();
+        if(player == null)
+        {
+            player = FindObjectOfType<Player>();
+        }
     }
 
     void Update()

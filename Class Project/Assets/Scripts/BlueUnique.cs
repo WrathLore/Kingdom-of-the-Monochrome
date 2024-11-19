@@ -27,6 +27,8 @@ public class BlueUnique : MonoBehaviour
     [SerializeField] string fight = "Continue forward, as cautiously as possible.";
     [Header("Quest Objects")]
     [SerializeField] bool startedQuest = false;
+    [SerializeField] string snakeFood = "Rat";
+    [SerializeField] GameObject ratPrefab;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -127,6 +129,13 @@ public class BlueUnique : MonoBehaviour
     {
         track = 1;
         d.DeactivateDialogueBox();
+        int i = 0;
+        while(i < 3)
+        {
+            GameObject rat = Instantiate(ratPrefab, new Vector3(Random.Range(transform.position.x-5, transform.position.x+5),Random.Range(transform.position.y-5, transform.position.y+5),transform.position.z), transform.rotation);
+            i++;
+        }
+
         d.SetDialogue("TEST");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
@@ -135,9 +144,28 @@ public class BlueUnique : MonoBehaviour
 
     public void TurnIn()
     {
-        if(track != 3)
+        int i = 0;
+        foreach(string item in player.questItems)
+        {
+            if(string.Equals(snakeFood,item))
+            {
+                i++;
+            }
+            
+        }
+        if(i == 3)
+        {
+            track = 3;//JUST IN CASE
+            Rewards();
+            questGiver.SetActive(false);
+            d.DeactivateDialogueBox();
+            accept.onClick.RemoveListener(Change);
+            turnIn.onClick.RemoveListener(TurnIn); 
+        }
+        if(track != 3) //if i != 3
         {
             track = 2;
+            i = 0;
             d.SetDialogue("TEST");
         }
     }

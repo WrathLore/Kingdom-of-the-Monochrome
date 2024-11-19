@@ -13,6 +13,7 @@ public class ProjectileLauncher : MonoBehaviour
     public int maxProjectiles = 10;
     [SerializeField] int currentProjectiles = 0;
     [SerializeField] Transform finalDest;
+    [SerializeField] float timeBetweenProjectiles = 5f;
     public int destroyedProjectiles = 0;//increase by 1 every time a projectile is destroyed
 
     void Start()
@@ -68,7 +69,9 @@ public class ProjectileLauncher : MonoBehaviour
         }
         else if(string.Equals(scene, "RedLevel"))
         {
-
+            //circles will spawn in, move down and either collide with player and be destroyed or collide with ground and be destroyed
+            GameObject circle = Instantiate(circlePrefab, new Vector3(Random.Range(transform.position.x-7,transform.position.x+7),transform.position.y,transform.position.z), transform.rotation);
+            currentProjectiles++;
         }
     }
 
@@ -77,7 +80,7 @@ public class ProjectileLauncher : MonoBehaviour
         while(currentProjectiles < maxProjectiles)
         {
             Launch();
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(timeBetweenProjectiles);
         }
     }
 

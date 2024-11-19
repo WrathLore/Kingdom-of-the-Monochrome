@@ -21,7 +21,10 @@ public class PlayerInputController : MonoBehaviour
     {
         PanelUpdate();
         ItemUpdate();
-        Block();
+        if(!Player.questDodge)//don't want to block for red unique quest
+        {
+            Block();
+        }
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -103,11 +106,11 @@ public class PlayerInputController : MonoBehaviour
     public void MoveUpdate()
     {
          Vector3 movement = Vector3.zero;
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){ 
+        if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !Player.questDodge){ 
             movement += new Vector3(0,1,0);//up
             a.ChangeAnimationState("Back");
         }
-        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)){
+        if((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !Player.questDodge){
             movement += new Vector3(0,-1,0);//down
             a.ChangeAnimationState("Forward");
         }

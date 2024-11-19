@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
+    //for main hub; on start, check to see if the door needs to be replaced
+    //so on start call the red door green door blue door final door methods to see if they can change to the right form or not
     //THIS CLASS TO BE USED ONLY IN MAIN HUB
     public static DoorController singleton;
     [SerializeField] Player player;
