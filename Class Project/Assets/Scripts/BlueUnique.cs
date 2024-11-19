@@ -63,19 +63,19 @@ public class BlueUnique : MonoBehaviour
                 {
                     accept.gameObject.SetActive(true);
                     turnIn.gameObject.SetActive(false);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("The large snake glances at you for a moment before its tongue flickers out once more and its large head swings in the direction of a rat scurrying by.");
                 }
                 else if(track == 1)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("Numerous rats are scurrying by, better catch as many as you can see. The snake seems uninterested in you at the moment.");
                 }
                 else if(track == 2)
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("TEST");
+                    d.SetDialogue("The snake hisses in disapproval. Seems you have no yet collected enough rats.");
                 }
 
             }
@@ -122,7 +122,7 @@ public class BlueUnique : MonoBehaviour
         Player.inQuest = true;
         creature.interactedWith = true;
         d.SetName(creature.creatureName);
-        d.SetDialogue("TEST");
+        d.SetDialogue("The large snake glances at you for a moment before its tongue flickers out once more and its large head swings in the direction of a rat scurrying by.");
     }
 
     public void Change()
@@ -136,7 +136,7 @@ public class BlueUnique : MonoBehaviour
             i++;
         }
 
-        d.SetDialogue("TEST");
+        d.SetDialogue("Numerous rats are scurrying by, better catch as many as you can see. The snake seems uninterested in you at the moment.");
         accept.gameObject.SetActive(false);
         turnIn.gameObject.SetActive(true);
 
@@ -157,6 +157,7 @@ public class BlueUnique : MonoBehaviour
         {
             track = 3;//JUST IN CASE
             Rewards();
+            player.RegisterItem("Blue Scale");
             questGiver.SetActive(false);
             d.DeactivateDialogueBox();
             accept.onClick.RemoveListener(Change);
@@ -166,7 +167,7 @@ public class BlueUnique : MonoBehaviour
         {
             track = 2;
             i = 0;
-            d.SetDialogue("TEST");
+            d.SetDialogue("The snake hisses in disapproval. Seems you have no yet collected enough rats.");
         }
     }
 
@@ -184,7 +185,7 @@ public class BlueUnique : MonoBehaviour
     {
         if(creature != null)
         {
-             player.QuestVictory(creature.red, creature.green, creature.blue,"TEST", creature.GetPercent(), creature.GetProgress());
+             player.QuestVictory(creature.red, creature.green, creature.blue,"The snake blinks as it finishes eating the rats. It nudges against you as it slithers by, leaving behind a few glittering scales in its wake. It finally seems satisfied.", creature.GetPercent(), creature.GetProgress());
         }
         
     }
