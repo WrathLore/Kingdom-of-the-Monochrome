@@ -5,36 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
+    int i;
     [SerializeField] Player player;
     [SerializeField] GameObject rulesPanel;
     [SerializeField] GameObject optionsPanel;
     [SerializeField] GameObject fightPanel;
     //will be same class for all buttons
     //each button has a different tag just in case, but not likely to need that
-
+    
     //for the main menu, however, whatever ends up being put in for options and rules may still apply later
     public void OptionsButton()
     {
         //will call up the options menu
         if(optionsPanel != null)
         {
-            optionsPanel.SetActive(true);
+            i = PlayerPrefs.GetInt("FirstOpen", 1);
+            if(optionsPanel.GetComponent<Canvas>().enabled)
+            {
+                if(i == 1)
+                {
+                    i = 0;
+                    PlayerPrefs.SetInt("FirstOpen", i);
+                }
+                optionsPanel.GetComponent<Canvas>().enabled = false;
+            }
+            else
+            {
+                optionsPanel.GetComponent<Canvas>().enabled = true;
+            }
         }
 
-    }
-
-    public void CloseOptionsButton()
-    {
-        if(optionsPanel != null)
-        {
-            optionsPanel.SetActive(false);
-        }
     }
 
     public void RulesButton()
     {
         //will call up the rules menu
-        if(rulesPanel != null)
+        if(rulesPanel != null && !optionsPanel.GetComponent<Canvas>().enabled)
         {
             rulesPanel.SetActive(true);
         }

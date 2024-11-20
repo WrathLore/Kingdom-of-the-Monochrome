@@ -15,6 +15,7 @@ public class PlayerInputController : MonoBehaviour
     public static bool inFight = false;
     [SerializeField] int blockTime = 5;
     [SerializeField] PlayerAnimationStateChanger a;
+    [SerializeField] GameObject optionsPanel;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +30,11 @@ public class PlayerInputController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             player.changeScene();
+        }
+
+        if(Input.GetKey(KeyCode.O))
+        {
+            optionsPanel.GetComponent<Canvas>().enabled = true;
         }
 
         if(!inFight)
@@ -100,6 +106,7 @@ public class PlayerInputController : MonoBehaviour
             player.victoryPanel.SetActive(false);
             player.victoryQuest.SetActive(false);
             itemBox.SetActive(false);
+            optionsPanel.GetComponent<Canvas>().enabled = false;
         }
     }
 

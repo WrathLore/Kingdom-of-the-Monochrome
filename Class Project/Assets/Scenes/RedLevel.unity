@@ -1130,6 +1130,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7ef457eabd939b4f8dab9bee8208232, type: 3}
+--- !u!1 &209526225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8046465504616475606, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 725775961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &222355765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4481808565410632398, guid: f7ef457eabd939b4f8dab9bee8208232, type: 3}
@@ -3772,6 +3777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 857313625180161753, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1140779310279783785, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 28.400002
@@ -3784,9 +3793,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 8.900002
       objectReference: {fileID: 0}
+    - target: {fileID: 2480360375475864269, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2642908305753944886, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5.0999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985319300787495210, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3530004821100485739, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3796,6 +3813,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 329634557}
+    - target: {fileID: 4728882256970502644, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5144284571781159222, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5160607834543352846, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -3936,8 +3961,16 @@ PrefabInstance:
       propertyPath: rulesPanel
       value: 
       objectReference: {fileID: 725775962}
+    - target: {fileID: 6020999819085001979, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6123925461014632110, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547723320905721817, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6555853908916133080, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
@@ -4040,6 +4073,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 329634557}
+    - target: {fileID: 8339197507097556733, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8489238895294932354, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3.2999992
@@ -4489,6 +4526,10 @@ PrefabInstance:
       propertyPath: itemText
       value: 
       objectReference: {fileID: 1016033272}
+    - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
+      propertyPath: optionsPanel
+      value: 
+      objectReference: {fileID: 209526225}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -185,6 +185,7 @@ public class PuzzleScript : MonoBehaviour
             draggingPiece.localPosition = targetPos;
             //disable collider so can't click on object anymore
             draggingPiece.GetComponent<BoxCollider2D>().enabled = false;
+            draggingPiece.GetComponent<AudioSource>().Play();
             piecesCorrect++;//to make sure it is added so one step closer to finishing puzzle
             if(piecesCorrect == pieces.Count)
             {
