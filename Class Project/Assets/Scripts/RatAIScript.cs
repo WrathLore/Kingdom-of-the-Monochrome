@@ -10,7 +10,6 @@ public class RatAIScript : MonoBehaviour
     //keep it in a certain area, then once it is picked up
     //P is pressed while in its hitbox, then it turns off
     //otherwise it keeps on moving
-    [SerializeField] string currentStateString; //use for more of a visual cue than anything else
 
     delegate void AIState();
     AIState currentState;
@@ -57,7 +56,6 @@ public class RatAIScript : MonoBehaviour
     void LeftState()
     {
         a.ChangeAnimationState("Left");
-        currentStateString = "Left";
         //if bump into a wall, try going down
         //also if certain amount of time passed without bumping into something go down
         if(stateTime > 5)
@@ -88,7 +86,6 @@ public class RatAIScript : MonoBehaviour
     void RightState()
     {
         a.ChangeAnimationState("Right");
-        currentStateString = "Right";
         //if bump into a wall, try going up
         //also if certain amount of time passed without bumping into something go up
         if(stateTime > 4)
@@ -120,7 +117,6 @@ public class RatAIScript : MonoBehaviour
     void UpState()
     {
         a.ChangeAnimationState("Up");
-        currentStateString = "Up";
         //if bump into a wall, try going left
         //also if certain amount of time passed without bumping into something go left
         if(stateTime > 4)
@@ -151,7 +147,6 @@ public class RatAIScript : MonoBehaviour
     void DownState()
     {
         a.ChangeAnimationState("Down");
-        currentStateString = "Down";
         //if bump into a wall, try going right
         //also if certain amount of time passed without bumping into something go right
         if(stateTime > 5)

@@ -205,9 +205,12 @@ public class PickUp : MonoBehaviour
         }
         else if(unique)
         {
-            if(greenUnique != null)
+            if(greenUnique != null && player.blocked)//for the fires, specifically pick it up if blocking
             {
-
+                greenUnique.putOutFires++;
+                onItem = false;
+                pickedUp = true;
+                Destroy(item); 
             }
             if(redUnique != null)
             {

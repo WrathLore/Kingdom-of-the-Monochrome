@@ -8332,11 +8332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6556322594980199005, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6556322594980199005, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6556322594980199005, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9321,6 +9321,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414188866}
     - target: {fileID: -2364773906708510003, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
+      propertyPath: firePrefab
+      value: 
+      objectReference: {fileID: 5980354047809592672, guid: c5b63fcdb63e55649b5b1f82f46b2f18, type: 3}
+    - target: {fileID: -2364773906708510003, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
       propertyPath: questGiver
       value: 
       objectReference: {fileID: 1691305163}
@@ -9338,11 +9342,11 @@ PrefabInstance:
       objectReference: {fileID: 1414188868}
     - target: {fileID: 2848223297018644144, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2848223297018644144, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.1
+      value: 14.5
       objectReference: {fileID: 0}
     - target: {fileID: 2848223297018644144, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
       propertyPath: m_LocalPosition.z
