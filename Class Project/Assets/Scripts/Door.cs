@@ -19,13 +19,9 @@ public class Door : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        changeLocation();
+        ChangeLocation();
     }
-    void Start()
-    {
-        DoorController.singleton.RegisterDoor(this);
-    }
-    public void changeLocation()
+    public void ChangeLocation()
     {
         if(string.Equals(newLocation, "Red"))//head into red level
         {
@@ -56,11 +52,11 @@ public class Door : MonoBehaviour
         if(other.CompareTag("Player") && !entered && Mathf.Approximately(player.GetComponent<Player>().progressTracker, 1f))
         {
             //if button is pressed(space bar), then go to new scene
-            player.GetComponent<Player>().setScene(scene);
+            player.GetComponent<Player>().SetScene(scene);
         }
         else if(other.CompareTag("Player") && !entered && !string.Equals(scene,"GameHub"))
         {//to move around on main hub screen to other levels
-            player.GetComponent<Player>().setScene(scene);
+            player.GetComponent<Player>().SetScene(scene);
         }
         else if(entered)
         {
@@ -72,7 +68,7 @@ public class Door : MonoBehaviour
     {
         if(other.CompareTag("Player") && !entered)
         {
-          player.GetComponent<Player>().setScene("");
+          player.GetComponent<Player>().SetScene("");
         }
     }
 

@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
        pb.velocity = movement * speed;
     }
 
-    public void setScene(string scene)
+    public void SetScene(string scene)
     {
         this.scene = scene;
     }

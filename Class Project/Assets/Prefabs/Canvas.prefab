@@ -2642,34 +2642,39 @@ MonoBehaviour:
     C
     - close panels
 
-    I - Items
+    I - Items (List of all items currently gained in level)
 
-    P - Pick up items
+    P
+    - Pick up items
 
-    U - Unlock doors
+    U - Unlock doors (Gain the correct key first)
 
-    B
-    - Block
+    B - Block
+    (lasts for 5 seconds, can be used simultaneously with P to put out fires)
 
-    Space - Travel through doors
+    Space
+    - Travel through doors (complete level to do so)
 
     O - Options panel
 
-    T - Talk
-    and interact
+    T
+    - Talk and interact
+
+    X - Start Mini-game Quests (May lock movement in to
+    just left and right or up and down for duration of mini-game)
 
 
     Player Movement
 
-    W and up arrow - move up
+    W
+    and up arrow - move up
 
-    A and left
-    arrow - move left
+    A and left arrow - move left
 
-    S and down arrow - move down
+    S and down arrow
+    - move down
 
-    D and right arrow -
-    move right'
+    D and right arrow - move right'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
