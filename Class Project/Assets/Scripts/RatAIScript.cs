@@ -11,6 +11,8 @@ public class RatAIScript : MonoBehaviour
     //P is pressed while in its hitbox, then it turns off
     //otherwise it keeps on moving
 
+    public string currentStateString;
+    Rigidbody2D pb;
     delegate void AIState();
     AIState currentState;
     [SerializeField] PlayerAnimationStateChanger a; //since this is where movement is changed, this is where animation is changed
@@ -20,7 +22,13 @@ public class RatAIScript : MonoBehaviour
     float stateTime = 0;
     bool justChangedState = false;
     int startingDirection = 0;
-    bool onWall = false;
+    //bool onWall = false;
+    float speed = 6f;
+
+    void Awake()
+    {
+        pb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
@@ -55,10 +63,11 @@ public class RatAIScript : MonoBehaviour
     //use PickUp script for that basically
     void LeftState()
     {
+        currentStateString = "Left";
         a.ChangeAnimationState("Left");
         //if bump into a wall, try going down
         //also if certain amount of time passed without bumping into something go down
-        if(stateTime > 5)
+        if(stateTime > 3)
         {
             int rand = Random.Range(1,4);
             if(rand == 2)
@@ -75,20 +84,21 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        if(onWall && stateTime > 2)
+        /*if(onWall && stateTime > 0)
         {
             ChangeState(RightState);
             return;
-        }
-        transform.position += Vector3.left * 0.03f;
+        }*/
+        pb.velocity = Vector3.left * speed;
     }
 
     void RightState()
     {
+        currentStateString = "Right";
         a.ChangeAnimationState("Right");
         //if bump into a wall, try going up
         //also if certain amount of time passed without bumping into something go up
-        if(stateTime > 4)
+        if(stateTime > 3)
         {
             int rand = Random.Range(1,4);
             if(rand == 2)
@@ -105,21 +115,22 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        if(onWall && stateTime > 2)
+        /*if(onWall && stateTime > 0)
         {
             ChangeState(LeftState);
             return;
-        }
-        transform.position += Vector3.right * 0.03f;
+        }*/
+        pb.velocity = Vector3.right * speed;
         
     }
 
     void UpState()
     {
+        currentStateString = "Up";
         a.ChangeAnimationState("Up");
         //if bump into a wall, try going left
         //also if certain amount of time passed without bumping into something go left
-        if(stateTime > 4)
+        if(stateTime > 3)
         {
             int rand = Random.Range(1,4);
             if(rand == 2)
@@ -136,20 +147,21 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        if(onWall && stateTime > 2)
+        /*if(onWall && stateTime > 0)
         {
             ChangeState(DownState);
             return;
-        }
-        transform.position += Vector3.up * 0.03f;
+        }*/
+        pb.velocity = Vector3.up * speed;
     }
 
     void DownState()
     {
+        currentStateString = "Down";
         a.ChangeAnimationState("Down");
         //if bump into a wall, try going right
         //also if certain amount of time passed without bumping into something go right
-        if(stateTime > 5)
+        if(stateTime > 3)
         {
             int rand = Random.Range(1,4);
             if(rand == 2)
@@ -166,12 +178,12 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        if(onWall && stateTime > 2)
+       /* if(onWall && stateTime > 0)
         {
             ChangeState(UpState);
             return;
-        }
-        transform.position += Vector3.down * 0.03f;
+        }*/
+        pb.velocity = Vector3.down * speed;
     }
 
      void AITick()
@@ -189,16 +201,22 @@ public class RatAIScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ground"))
         {
-            onWall = true;
-        }
-        
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("Ground"))
-        {
-            onWall = false;
+            if(string.Equals(currentStateString,"Right"))
+            {
+                ChangeState(LeftState);
+            }
+            else if(string.Equals(currentStateString,"Left"))
+            {
+                ChangeState(RightState);
+            }
+            else if(string.Equals(currentStateString,"Up"))
+            {
+                ChangeState(DownState);
+            }
+            else
+            {
+                ChangeState(UpState);
+            }
         }
         
     }
