@@ -18,7 +18,6 @@ public class PuzzleScript : MonoBehaviour
     [SerializeField] int numOfPieces = 4;//for 16 puzzle pieces, a 64 by 64 puzzle needs to be split into 16 by 16 chunks which will give 4 by 4 across the whole image
     [SerializeField] Transform gameHolder;
     [SerializeField] Transform piecePrefab;
-    [SerializeField] GameObject basePicture;
     public bool finishedPuzzle = false;//use to interact with the other scripts as needed
     [SerializeField] TimerScript timer;
     [SerializeField] GameObject timerText;//set it to true

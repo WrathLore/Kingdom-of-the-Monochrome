@@ -10,7 +10,6 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] GameObject tutorial;//panel for the tutorial
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI info;
-    [SerializeField] GameObject player;//don't need the player script, just the player object for the location
     [SerializeField] string location;//use like an enum, B is beginning, E is end, F is fight, and Q is quest
 
     void OnTriggerEnter2D(Collider2D other)

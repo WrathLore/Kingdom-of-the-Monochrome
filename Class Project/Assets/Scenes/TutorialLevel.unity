@@ -184,6 +184,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8365620804736490480, guid: c5f7e4f6f2c10bd47a5a8f333e8f5af6, type: 3}
   m_PrefabInstance: {fileID: 28490996}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &32894709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9145594235858896446, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 308475021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &46409273 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4015477510542696991, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
@@ -301,7 +312,6 @@ MonoBehaviour:
   tutorial: {fileID: 710150115}
   title: {fileID: 1380015073}
   info: {fileID: 1951516962}
-  player: {fileID: 2006455094}
   location: E
 --- !u!61 &141842167
 BoxCollider2D:
@@ -591,6 +601,14 @@ PrefabInstance:
       propertyPath: creatureName
       value: Red Lamb Quest
       objectReference: {fileID: 0}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 32894709}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fad919ba6a80d474b8ad689c5b1d958b, type: 3}
     - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: inTutorialQuest
       value: 1
@@ -1262,6 +1280,10 @@ PrefabInstance:
       propertyPath: weaponName
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 1825493157365206095, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b68aa1014764a46498c5cf4de23e8f57, type: 3}
     - target: {fileID: 4103734755747911202, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1373,7 +1395,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8968154967352347311, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
   m_PrefabInstance: {fileID: 310026931}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006455094}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c8baf0c40c7e4441b1cc5df550b5a2b, type: 3}
@@ -1384,7 +1406,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -3263391628525667563, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
   m_PrefabInstance: {fileID: 310026931}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006455094}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae860fa04bf028043a1f227adf3124ee, type: 3}
@@ -1676,7 +1698,6 @@ MonoBehaviour:
   tutorial: {fileID: 710150115}
   title: {fileID: 1380015073}
   info: {fileID: 1951516962}
-  player: {fileID: 2006455094}
   location: F
 --- !u!61 &580848122
 BoxCollider2D:
@@ -2737,6 +2758,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 32894709}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: defendPercent
       value: 0.75
       objectReference: {fileID: 0}
@@ -2744,6 +2769,10 @@ PrefabInstance:
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1243585736}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fad919ba6a80d474b8ad689c5b1d958b, type: 3}
     - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: inTutorialFight
       value: 1
@@ -3087,7 +3116,6 @@ MonoBehaviour:
   tutorial: {fileID: 710150115}
   title: {fileID: 1380015073}
   info: {fileID: 1951516962}
-  player: {fileID: 2006455094}
   location: B
 --- !u!61 &1353000512
 BoxCollider2D:
@@ -3820,7 +3848,6 @@ MonoBehaviour:
   tutorial: {fileID: 710150115}
   title: {fileID: 1380015073}
   info: {fileID: 1951516962}
-  player: {fileID: 2006455094}
   location: Q
 --- !u!61 &1691115977
 BoxCollider2D:
@@ -4604,11 +4631,6 @@ Transform:
   - {fileID: 853905599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2006455094 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4103734755747911202, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
-  m_PrefabInstance: {fileID: 310026931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2006611620
 PrefabInstance:
   m_ObjectHideFlags: 0

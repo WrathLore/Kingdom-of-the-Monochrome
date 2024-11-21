@@ -3531,9 +3531,17 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9150548215173476324, guid: 7ee2e49a678384e44906f7640f7335b2, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1975115284}
+    - target: {fileID: 9150548215173476324, guid: 7ee2e49a678384e44906f7640f7335b2, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1036913766}
+    - target: {fileID: 9150548215173476324, guid: 7ee2e49a678384e44906f7640f7335b2, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6e493412f11ca047a29f6ad05d08bd1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6234,9 +6242,17 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -6475310966278363183, guid: 22e7097b0567fd44385b357e4baabbd6, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1975115284}
+    - target: {fileID: -6475310966278363183, guid: 22e7097b0567fd44385b357e4baabbd6, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1036913766}
+    - target: {fileID: -6475310966278363183, guid: 22e7097b0567fd44385b357e4baabbd6, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a8ef90de26c39c3479ce79024efa5c61, type: 3}
     - target: {fileID: 764797953655489131, guid: 22e7097b0567fd44385b357e4baabbd6, type: 3}
       propertyPath: damage
       value: 7
@@ -6701,9 +6717,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6967093355317793879, guid: bc52026ba40efcf4cafa7037ebd21a83, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1975115284}
+    - target: {fileID: 6967093355317793879, guid: bc52026ba40efcf4cafa7037ebd21a83, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1036913766}
+    - target: {fileID: 6967093355317793879, guid: bc52026ba40efcf4cafa7037ebd21a83, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0a8453ecfc06acc449ff1660245ad800, type: 3}
     - target: {fileID: 8632943453700195524, guid: bc52026ba40efcf4cafa7037ebd21a83, type: 3}
       propertyPath: m_Name
       value: Green Fairy
@@ -9497,9 +9521,17 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6242811994452198673, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1975115284}
+    - target: {fileID: 6242811994452198673, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1036913766}
+    - target: {fileID: 6242811994452198673, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d06985bb4bb221842b526223bacaa998, type: 3}
     - target: {fileID: 8316875766841199620, guid: 89afa181ca55c7b4cba1d99a80eeb937, type: 3}
       propertyPath: m_Name
       value: Green Unique
@@ -10376,9 +10408,17 @@ PrefabInstance:
       value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: -632952170910266289, guid: 1ac114fa1e03b34499c020f40517a9ab, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1975115284}
+    - target: {fileID: -632952170910266289, guid: 1ac114fa1e03b34499c020f40517a9ab, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1036913766}
+    - target: {fileID: -632952170910266289, guid: 1ac114fa1e03b34499c020f40517a9ab, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6b439af1dd7242341a477b78fe3c6dc9, type: 3}
     - target: {fileID: 150016476697215842, guid: 1ac114fa1e03b34499c020f40517a9ab, type: 3}
       propertyPath: d
       value: 
@@ -10663,6 +10703,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 38636527814847998, guid: c571facdbc9ea774c96afdf5cc908e6c, type: 3}
   m_PrefabInstance: {fileID: 594964143}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1975115284 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9145594235858896446, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 1465879212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1982812364
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -105,7 +105,7 @@ public class DoorController : MonoBehaviour
             //red and green
             foreach(Door door in doors)
             {
-                if(string.Equals(door.name,"Final Door R") || string.Equals(door.name,"Final Door G"))
+                if(string.Equals(door.name,"Final Door R") || string.Equals(door.name,"Final Door G") || string.Equals(door.name,"Final Door"))
                 {
                     door.gameObject.SetActive(false);
                 }
@@ -120,7 +120,7 @@ public class DoorController : MonoBehaviour
             //red and blue
             foreach(Door door in doors)
             {
-                if(string.Equals(door.name,"Final Door R") || string.Equals(door.name,"Final Door B"))
+                if(string.Equals(door.name,"Final Door R") || string.Equals(door.name,"Final Door B") || string.Equals(door.name,"Final Door"))
                 {
                     door.gameObject.SetActive(false);
                 }
@@ -150,7 +150,7 @@ public class DoorController : MonoBehaviour
             //green and blue
             foreach(Door door in doors)
             {
-                if(string.Equals(door.name,"Final Door B") || string.Equals(door.name,"Final Door G"))
+                if(string.Equals(door.name,"Final Door B") || string.Equals(door.name,"Final Door G") || string.Equals(door.name,"Final Door"))
                 {
                     door.gameObject.SetActive(false);
                 }
@@ -180,7 +180,7 @@ public class DoorController : MonoBehaviour
             //red green and blue
             foreach(Door door in doors)
             {
-                if(string.Equals(door.name,"Final Door RB") || string.Equals(door.name,"Final Door RG") || string.Equals(door.name,"Final Door GB"))
+                if(string.Equals(door.name,"Final Door RB") || string.Equals(door.name,"Final Door RG") || string.Equals(door.name,"Final Door GB") || string.Equals(door.name,"Final Door"))
                 {
                     door.gameObject.SetActive(false);
                 }

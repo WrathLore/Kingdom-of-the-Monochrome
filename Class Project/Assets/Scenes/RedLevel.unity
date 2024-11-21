@@ -963,9 +963,17 @@ PrefabInstance:
       value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 2822392066902566145, guid: d8b82f384ea098846bcca6c35cc44a73, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 232270772}
+    - target: {fileID: 2822392066902566145, guid: d8b82f384ea098846bcca6c35cc44a73, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1688575095}
+    - target: {fileID: 2822392066902566145, guid: d8b82f384ea098846bcca6c35cc44a73, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ab7f44f8d4ab944db53e43f2156bbe1, type: 3}
     - target: {fileID: 3253247321542494022, guid: d8b82f384ea098846bcca6c35cc44a73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60.84
@@ -1140,6 +1148,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4481808565410632398, guid: f7ef457eabd939b4f8dab9bee8208232, type: 3}
   m_PrefabInstance: {fileID: 1529166510}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &232270772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9145594235858896446, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 725775961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &248665632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,9 +1305,17 @@ PrefabInstance:
       value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 2808837502817258287, guid: 0eeed565013c8da48a6fa2978fd1f343, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 232270772}
+    - target: {fileID: 2808837502817258287, guid: 0eeed565013c8da48a6fa2978fd1f343, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1688575095}
+    - target: {fileID: 2808837502817258287, guid: 0eeed565013c8da48a6fa2978fd1f343, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5866c068f05ee92428fb3b77f8f0f522, type: 3}
     - target: {fileID: 3777389731937632161, guid: 0eeed565013c8da48a6fa2978fd1f343, type: 3}
       propertyPath: m_Name
       value: Red Old Devot
@@ -2430,9 +2457,17 @@ PrefabInstance:
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 232270772}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1688575095}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fad919ba6a80d474b8ad689c5b1d958b, type: 3}
     - target: {fileID: 8318625768426702683, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: m_Name
       value: Red Lamb Cleric
@@ -7033,9 +7068,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2834594768342496472, guid: 8c96415f465521f438953d4feabdb98a, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 232270772}
+    - target: {fileID: 2834594768342496472, guid: 8c96415f465521f438953d4feabdb98a, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1688575095}
+    - target: {fileID: 2834594768342496472, guid: 8c96415f465521f438953d4feabdb98a, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6515605795141d04fa0448199c8540cf, type: 3}
     - target: {fileID: 4289822823739384401, guid: 8c96415f465521f438953d4feabdb98a, type: 3}
       propertyPath: block
       value: 5
@@ -8397,9 +8440,17 @@ PrefabInstance:
       value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: -384877565166172962, guid: 91d4a7595c4446f4794c6c1978d3749f, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 232270772}
+    - target: {fileID: -384877565166172962, guid: 91d4a7595c4446f4794c6c1978d3749f, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 1688575095}
+    - target: {fileID: -384877565166172962, guid: 91d4a7595c4446f4794c6c1978d3749f, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 69e27cc65e5a0db47a36434abf2fc189, type: 3}
     - target: {fileID: 2556501181652645092, guid: 91d4a7595c4446f4794c6c1978d3749f, type: 3}
       propertyPath: m_Name
       value: Red Maiden

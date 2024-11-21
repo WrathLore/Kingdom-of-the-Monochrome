@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Creature : MonoBehaviour
 {//this will contain all the stats about the characters and will be used to tie into the fight script
@@ -9,13 +10,17 @@ public class Creature : MonoBehaviour
     [Header("Background Information")]
     [SerializeField] Player player;
     [SerializeField] FightScript fightScript;
+    [SerializeField] Image creatureImage;
+    [SerializeField] Sprite creatureSprite;
     [SerializeField] GameObject creature; //set equal to the specific creature object
     [SerializeField] bool inTutorialFight = false;
     public bool inTutorialQuest = false;
     public bool interactedWith = false;
+    public bool finalBoss = false;
     public string creatureName;
     public bool isDead = false;
     public bool dodged = false;
+    [SerializeField] ButtonScript buttonScript; //ONLY USED FOR FINAL BOSS
     public GameObject choice;
     [SerializeField] GameObject questButton;
     [SerializeField] GameObject fightButton;
@@ -60,10 +65,15 @@ public class Creature : MonoBehaviour
             progressPercent = 0.5f;
             p = 50;
         }
-        else
+        else if(!finalBoss)
         {
             progressPercent = 0.2f;
             p = 20;
+        }
+        else
+        {
+            progressPercent = 1;
+            p = 100;
         }
     }
 
@@ -84,35 +94,48 @@ public class Creature : MonoBehaviour
         
         if(other.CompareTag("Player"))
         {
+            creatureImage.sprite = creatureSprite;
             Player.onCharacter = true;
             FightScript.RegisterOpponent(this);//set opponent to correct spot
-            if(!interactedWith && fightScript != null)
+            if(!finalBoss)
             {
-                if(inTutorialFight)
+                if(!interactedWith && fightScript != null)
                 {
-                    choice.SetActive(true);
-                    questButton.SetActive(false);
-                    fightButton.SetActive(true);
-                    fightScript.setValues();
-                }
-                else if(inTutorialQuest)
-                {
-                    choice.SetActive(true);
-                    questButton.SetActive(true);
-                    fightButton.SetActive(false);
+                    if(inTutorialFight)
+                    {
+                        choice.SetActive(true);
+                        questButton.SetActive(false);
+                        fightButton.SetActive(true);
+                        fightScript.setValues();
+                    }
+                    else if(inTutorialQuest)
+                    {
+                        choice.SetActive(true);
+                        questButton.SetActive(true);
+                        fightButton.SetActive(false);
+                    }
+                    else
+                    {
+                        choice.SetActive(true);
+                        fightScript.setValues();
+                        fightButton.SetActive(true);
+                        questButton.SetActive(true);
+                    }
                 }
                 else
                 {
-                    choice.SetActive(true);
-                    fightScript.setValues();
-                    fightButton.SetActive(true);
-                    questButton.SetActive(true);
+                    choice.SetActive(false);//turn off the choice option if interacted with
                 }
             }
             else
             {
-                choice.SetActive(false);//turn off the choice option if interacted with
+                //finalBoss stuff
+                if(Player.killed > Player.quest)
+                {
+                    buttonScript.FightButton();
+                }
             }
+            
             
         }
         

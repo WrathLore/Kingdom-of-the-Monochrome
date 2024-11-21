@@ -2113,9 +2113,17 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1619747472}
+    - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
+    - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6c9c600b2a2d6248bbbf5e432d3f95d, type: 3}
     - target: {fileID: 2129969251065810054, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: m_Name
       value: Blue Unique
@@ -5102,9 +5110,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8379866695824130929, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1619747472}
+    - target: {fileID: 8379866695824130929, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
+    - target: {fileID: 8379866695824130929, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ae916f177c6fe245b4d690deb23dfeb, type: 3}
     - target: {fileID: 8684810102350945443, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.1
@@ -7259,9 +7275,17 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7888748975854883217, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1619747472}
+    - target: {fileID: 7888748975854883217, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
+    - target: {fileID: 7888748975854883217, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 49baa4bbe025fa140ad74b7a827ddb1a, type: 3}
     - target: {fileID: 8386458362366884460, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
       propertyPath: damage
       value: 15
@@ -7308,6 +7332,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efc98f22417a3e544bcfc780fdd0157e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1619747472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9145594235858896446, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 967217763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1635231647
@@ -8279,9 +8314,17 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1585101472802546919, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1619747472}
+    - target: {fileID: 1585101472802546919, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
+    - target: {fileID: 1585101472802546919, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2a732f9562a8b74489e173961c6346a, type: 3}
     - target: {fileID: 2420211809268533708, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
       propertyPath: d
       value: 
@@ -9015,9 +9058,17 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 949110732752909774, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: creatureImage
+      value: 
+      objectReference: {fileID: 1619747472}
+    - target: {fileID: 949110732752909774, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
+    - target: {fileID: 949110732752909774, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: creatureSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c15b2ead6262c9d4db51065ff3734b72, type: 3}
     - target: {fileID: 2246949785168317700, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
       propertyPath: damage
       value: 14

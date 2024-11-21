@@ -65,6 +65,7 @@ public class Player : MonoBehaviour
 
     //internal trackers below
     [Header("Internal Trackers")]
+    public bool finalBossDefeat = false;
     public float progressTracker = 0;//1 is 100%
     public int progress = 0;//will be used for the text part of the progress bar
     //probably wont make this static since it is for each area
@@ -415,6 +416,36 @@ public class Player : MonoBehaviour
     {
         if(isDead || questFailed)
         {
+            if(finalBossDefeat)
+            {
+                //need to reset all static variables to what they were originally
+                isGreen = false;
+                isRed = false;
+                isBlue = false;
+                PlayerInputController.inFight = false;
+                red = 0;
+                green = 0;
+                blue = 0;
+                dodgePercent = 0.1f;
+                currentHealthPoints = 40;
+                maxHealthPoints = 40;
+                strength = 25;
+                actionTaken = "Waiting for input...";
+                healthPotions = 2;
+                maxHealthPotions = 2;
+                tutorialQuest = false;
+                tutorialFight = false;
+                Creature.actionTaken = "Waiting for first move...";
+                Creature.isBlocking = false;
+                killed = 0;
+                quest = 0;
+                isBlocking = false;
+                inQuest = false;
+                onCharacter = false;
+                onCircle = false;
+                questDodge = false;
+                SceneManager.LoadScene("MainMenu");
+            }
             currentHealthPoints = maxHealthPoints;
 
             questDodge = false;
