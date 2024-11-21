@@ -9,7 +9,7 @@ public class PlayerAnimationStateChanger : MonoBehaviour
 
     void Start()
     {
-        ChangeAnimationState("Idle");
+        ChangeAnimationState(currentState);
     }
 
     public void ChangeAnimationState(string newState, float speed = 1)

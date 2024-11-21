@@ -22,7 +22,6 @@ public class RatAIScript : MonoBehaviour
     float stateTime = 0;
     bool justChangedState = false;
     int startingDirection = 0;
-    //bool onWall = false;
     float speed = 6f;
 
     void Awake()
@@ -84,11 +83,6 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        /*if(onWall && stateTime > 0)
-        {
-            ChangeState(RightState);
-            return;
-        }*/
         pb.velocity = Vector3.left * speed;
     }
 
@@ -115,11 +109,6 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        /*if(onWall && stateTime > 0)
-        {
-            ChangeState(LeftState);
-            return;
-        }*/
         pb.velocity = Vector3.right * speed;
         
     }
@@ -147,11 +136,6 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-        /*if(onWall && stateTime > 0)
-        {
-            ChangeState(DownState);
-            return;
-        }*/
         pb.velocity = Vector3.up * speed;
     }
 
@@ -178,11 +162,6 @@ public class RatAIScript : MonoBehaviour
             }
             return;
         }
-       /* if(onWall && stateTime > 0)
-        {
-            ChangeState(UpState);
-            return;
-        }*/
         pb.velocity = Vector3.down * speed;
     }
 

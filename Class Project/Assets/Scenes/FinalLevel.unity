@@ -1143,6 +1143,10 @@ PrefabInstance:
       propertyPath: weaponName
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 1825493157365206095, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b68aa1014764a46498c5cf4de23e8f57, type: 3}
     - target: {fileID: 4103734755747911202, guid: f14eeef1e843bfd47a6cc298bcc8186d, type: 3}
       propertyPath: m_Name
       value: Player
