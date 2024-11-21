@@ -16,10 +16,19 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] int blockTime = 5;
     [SerializeField] PlayerAnimationStateChanger a;
     [SerializeField] GameObject optionsPanel;
+    [SerializeField] GameObject finishGameCircle;
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.E) && finishGameCircle != null)
+        {
+            if(finishGameCircle.GetComponent<FinishGame>().onCircle)
+            {
+                //reset all progress and head back to main menu
+            }
+
+        }
         PanelUpdate();
         ItemUpdate();
         if(!Player.questDodge)//don't want to block for red unique quest
