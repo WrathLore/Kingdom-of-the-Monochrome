@@ -26,6 +26,32 @@ public class PlayerInputController : MonoBehaviour
             if(finishGameCircle.GetComponent<FinishGame>().onCircle)
             {
                 //reset all progress and head back to main menu
+                Player.isGreen = false;
+                Player.isRed = false;
+                Player.isBlue = false;
+                inFight = false;
+                Player.red = 0;
+                Player.green = 0;
+                Player.blue = 0;
+                Player.dodgePercent = 0.1f;
+                Player.currentHealthPoints = 40;
+                Player.maxHealthPoints = 40;
+                Player.strength = 25;
+                Player.actionTaken = "Waiting for input...";
+                Player.healthPotions = 2;
+                Player.maxHealthPotions = 2;
+                Player.tutorialQuest = false;
+                Player.tutorialFight = false;
+                Creature.actionTaken = "Waiting for first move...";
+                Creature.isBlocking = false;
+                Player.killed = 0;
+                Player.quest = 0;
+                Player.isBlocking = false;
+                Player.inQuest = false;
+                Player.onCharacter = false;
+                Player.onCircle = false;
+                Player.questDodge = false;
+                SceneManager.LoadScene("MainMenu");
             }
 
         }

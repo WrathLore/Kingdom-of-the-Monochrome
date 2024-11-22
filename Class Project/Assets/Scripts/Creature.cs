@@ -11,6 +11,7 @@ public class Creature : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] FightScript fightScript;
     [SerializeField] Image creatureImage;
+    [SerializeField] Image dialogueImage;
     [SerializeField] Sprite creatureSprite;
     [SerializeField] GameObject creature; //set equal to the specific creature object
     [SerializeField] bool inTutorialFight = false;
@@ -24,6 +25,7 @@ public class Creature : MonoBehaviour
     public GameObject choice;
     [SerializeField] GameObject questButton;
     [SerializeField] GameObject fightButton;
+    [SerializeField] GameObject finalDialogue; //ONLY USED FOR FINAL BOSS
     [SerializeField] GameObject mazeBlock; //use for any blockage that may be in a quest to turn off in case fight is chosen instead
     public static string actionTaken = "Waiting for the first move..."; //keep track of action taken in fight
     [Header("Items")]
@@ -95,6 +97,7 @@ public class Creature : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             creatureImage.sprite = creatureSprite;
+            dialogueImage.sprite = creatureSprite;
             Player.onCharacter = true;
             FightScript.RegisterOpponent(this);//set opponent to correct spot
             if(!finalBoss)
@@ -134,6 +137,10 @@ public class Creature : MonoBehaviour
                 {
                     buttonScript.FightButton();
                 }
+                else
+                {
+                    finalDialogue.SetActive(true);
+                }
             }
             
             
@@ -147,13 +154,21 @@ public class Creature : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Player.onCharacter = false;
-            if(!interactedWith && fightScript != null)
+            if(!finalBoss)
             {
-                if(choice != null)
+                if(!interactedWith && fightScript != null)
                 {
-                    choice.SetActive(false);
+                    if(choice != null)
+                    {
+                        choice.SetActive(false);
+                    }
                 }
             }
+            else
+            {
+                finalDialogue.SetActive(false);
+            }
+            
             
         }
     }

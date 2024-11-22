@@ -2117,6 +2117,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1619747472}
     - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 1474707508}
+    - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
@@ -5114,6 +5118,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1619747472}
     - target: {fileID: 8379866695824130929, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 1474707508}
+    - target: {fileID: 8379866695824130929, guid: bd7287dc69b91734ea95236270bfaaf3, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
@@ -7279,6 +7287,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1619747472}
     - target: {fileID: 7888748975854883217, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 1474707508}
+    - target: {fileID: 7888748975854883217, guid: 9646cceb166f12b499cba065bb1c94b1, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
@@ -8318,6 +8330,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1619747472}
     - target: {fileID: 1585101472802546919, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 1474707508}
+    - target: {fileID: 1585101472802546919, guid: 0156d1e1b81d90f408951802d69d3767, type: 3}
       propertyPath: potionsEarned
       value: 
       objectReference: {fileID: 616907219}
@@ -9061,6 +9077,10 @@ PrefabInstance:
       propertyPath: creatureImage
       value: 
       objectReference: {fileID: 1619747472}
+    - target: {fileID: 949110732752909774, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 1474707508}
     - target: {fileID: 949110732752909774, guid: 7302e088cfb663c49b802d93df90b355, type: 3}
       propertyPath: potionsEarned
       value: 

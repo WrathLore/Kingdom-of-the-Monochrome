@@ -606,6 +606,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32894709}
     - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 999289971}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: creatureSprite
       value: 
       objectReference: {fileID: 21300000, guid: fad919ba6a80d474b8ad689c5b1d958b, type: 3}
@@ -2765,6 +2769,10 @@ PrefabInstance:
       propertyPath: defendPercent
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
+      propertyPath: dialogueImage
+      value: 
+      objectReference: {fileID: 999289971}
     - target: {fileID: 8275836018757759787, guid: ae9751175ad1c864cba6cfd1659359dc, type: 3}
       propertyPath: potionsEarned
       value: 

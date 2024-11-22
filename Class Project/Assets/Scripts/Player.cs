@@ -69,8 +69,8 @@ public class Player : MonoBehaviour
     public float progressTracker = 0;//1 is 100%
     public int progress = 0;//will be used for the text part of the progress bar
     //probably wont make this static since it is for each area
-    static bool tutorialQuest = false;
-    static bool tutorialFight = false;
+    public static bool tutorialQuest = false;
+    public static bool tutorialFight = false;
     //use the above two for the tutorial specifically; ie don't let player progress tutorial until these are true
     public static int killed = 0;
     public static int quest = 0;//two ints to track number killed and number quested
