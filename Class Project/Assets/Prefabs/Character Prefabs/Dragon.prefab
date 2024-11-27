@@ -146,23 +146,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   fightScript: {fileID: 0}
+  creatureImage: {fileID: 0}
+  dialogueImage: {fileID: 0}
+  creatureSprite: {fileID: 0}
   creature: {fileID: 8109463999058876247}
   inTutorialFight: 0
   inTutorialQuest: 0
   interactedWith: 0
+  finalBoss: 0
   creatureName: Dragon
   isDead: 0
   dodged: 0
+  buttonScript: {fileID: 0}
   choice: {fileID: 0}
   questButton: {fileID: 0}
   fightButton: {fileID: 0}
+  finalDialogue: {fileID: 0}
   mazeBlock: {fileID: 0}
   healthPotions: 1
   green: 0
   blue: 0
   red: 0
   weapon: {fileID: 9057225878529786656}
-  healthPoints: 25
+  healthPoints: 100
   strength: 10
   attackPercent: 0.5
   defendPercent: 0.75

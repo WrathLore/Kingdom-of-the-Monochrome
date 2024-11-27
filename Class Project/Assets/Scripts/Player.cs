@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [Header("Stats")]//alot of this has been changed to static to keep track between scenes
     public static float currentHealthPoints = 40;
     public static float maxHealthPoints = 40;
-    public static float strength = 25;
+    public static float strength = 5;
     public static float dodgePercent = 0.1f;//start at 10% chance to dodge for player, can go up
     //dodge will be only thing affected by tutorial, get extra 3%
     //so max dodge by end game (including tutorial) should be 58%
@@ -221,7 +221,10 @@ public class Player : MonoBehaviour
 
     public void IncreaseStrength()
     {
-        strength += 2*fightInLevel; //increase strength by 2 per enemy defeated per level finished
+        if(fightInLevel > 0)
+        {
+            strength += 2; //increase strength by 2 per level finished
+        }
     }
 
     public void IncreaseDodge()
@@ -280,20 +283,7 @@ public class Player : MonoBehaviour
     public float Attack()
     {
         //attack will take into regards strength and damage of weapon
-        if(strength > weapon.damage)
-        {
-            return strength;
-        }
-        else if(strength < weapon.damage)
-        {
-            return weapon.damage + (strength/4);
-        }
-        else
-        {
-            //strength == weapon.damage
-            return weapon.damage+strength;//will be hidden mechanic basically
-            //if damage equals strength then they are both used for attack
-        }
+        return ((0.5f*weapon.damage)+strength);//half of the weapon damage added to strength
         //return amount of damage to be dealt
     }
     //BLOCK ATTACK and USEPOTION will be tied to the buttons on the fightscript
@@ -495,12 +485,6 @@ public class Player : MonoBehaviour
         SetColor();
         healthPotions = maxHealthPotions;
     }
-
-    public void BlockProjectiles()
-    {
-        //use for the blocking sections
-    }
-
 
     public IEnumerator BlockRoutine(int currentTime)
     {

@@ -103,11 +103,24 @@ MonoBehaviour:
   questButton: {fileID: 0}
   fightButton: {fileID: 0}
   charText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  button: {fileID: 0}
+  questGiver: {fileID: 0}
+  player: {fileID: 0}
+  creature: {fileID: 0}
+  d: {fileID: 0}
+  accept: {fileID: 0}
+  turnIn: {fileID: 0}
   text: A maiden dances through the field before you, whipping this way and that
     with sharp tipped whips. Getting close may be a problem, but going around seems
     impossible with the way she moves around almost erratically.
   quest: Look at the way she is moving and follow along behind to avoid the danger.
   fight: Wait for an opening and then charge forward to take the whips.
+  startedQuest: 0
+  puzzleBase: {fileID: 0}
+  puzzle: Sculpted Field
+  puzzleScript: {fileID: 0}
 --- !u!61 &-1098064280520421998
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,21 +179,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  fightScript: {fileID: 0}
+  creatureImage: {fileID: 0}
+  dialogueImage: {fileID: 0}
+  creatureSprite: {fileID: 0}
+  creature: {fileID: 0}
   inTutorialFight: 0
   inTutorialQuest: 0
   interactedWith: 0
+  finalBoss: 0
   creatureName: Blue Maiden
+  isDead: 0
+  dodged: 0
+  buttonScript: {fileID: 0}
   choice: {fileID: 0}
   questButton: {fileID: 0}
   fightButton: {fileID: 0}
+  finalDialogue: {fileID: 0}
+  mazeBlock: {fileID: 0}
   healthPotions: 2
   green: 0
   blue: 35
   red: 0
   weapon: {fileID: 0}
   healthPoints: 30
-  strength: 12
-  dodge: 10
+  strength: 5
+  attackPercent: 0.5
+  defendPercent: 0.75
+  healPercent: 1
+  dodgePercent: 0.01
+  randomNum: 0
+  randomInt: 0
+  actionNum: 0
+  redEarned: {fileID: 0}
+  greenEarned: {fileID: 0}
+  blueEarned: {fileID: 0}
+  potionsEarned: {fileID: 0}
+  progressPercent: 0
+  p: 0
 --- !u!114 &5676905583678303907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +231,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 
   damage: 0
+  shieldName: 
+  block: 0

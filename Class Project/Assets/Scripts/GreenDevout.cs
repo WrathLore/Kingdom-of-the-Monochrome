@@ -89,7 +89,7 @@ public class GreenDevout : MonoBehaviour
                 {
                     accept.gameObject.SetActive(false);
                     turnIn.gameObject.SetActive(true);
-                    d.SetDialogue("Not enough items I see! Come back with one of each item so I can check them over.");
+                    d.SetDialogue("Well, lets see what you have! Come back with one of each item so I can check them over, don't worry about any items you got right though.");
                 }
 
             }

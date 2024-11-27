@@ -139,7 +139,10 @@ public class Creature : MonoBehaviour
                 }
                 else
                 {
-                    finalDialogue.SetActive(true);
+                    if(finalDialogue != null)
+                    {
+                        finalDialogue.SetActive(true);
+                    }
                 }
             }
             
@@ -166,7 +169,10 @@ public class Creature : MonoBehaviour
             }
             else
             {
-                finalDialogue.SetActive(false);
+                if(finalDialogue != null)
+                {
+                    finalDialogue.SetActive(false);
+                }
             }
             
             
@@ -236,14 +242,7 @@ public class Creature : MonoBehaviour
 
     public float Attack()
     {
-        if(strength >= weapon.damage)
-        {
-            return strength;
-        }
-        else
-        {
-            return weapon.damage + (strength/4);
-        }
+        return ((0.5f*weapon.damage)+strength);
     }
     //randomish chance for attack block usepotion
     //maybe like 75% attack 20% block 5% usepotion(may increase if health dips below certain amount)
