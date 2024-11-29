@@ -4143,10 +4143,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 974088396}
     - target: {fileID: 8657784545685574213, guid: deed16a5c233b2a4cabb6329504d7d55, type: 3}
-      propertyPath: strength
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657784545685574213, guid: deed16a5c233b2a4cabb6329504d7d55, type: 3}
       propertyPath: finalBoss
       value: 1
       objectReference: {fileID: 0}
@@ -4182,10 +4178,6 @@ PrefabInstance:
       propertyPath: buttonScript
       value: 
       objectReference: {fileID: 6145900970796972860}
-    - target: {fileID: 8657784545685574213, guid: deed16a5c233b2a4cabb6329504d7d55, type: 3}
-      propertyPath: healthPoints
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 8657784545685574213, guid: deed16a5c233b2a4cabb6329504d7d55, type: 3}
       propertyPath: creatureImage
       value: 

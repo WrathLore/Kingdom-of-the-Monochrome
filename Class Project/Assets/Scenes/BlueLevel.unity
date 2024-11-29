@@ -2078,7 +2078,7 @@ PrefabInstance:
       objectReference: {fileID: 518046296}
     - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: strength
-      value: 17
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 236455091843592335, guid: bb29db31d27d3e3439ac932f20a02814, type: 3}
       propertyPath: redEarned

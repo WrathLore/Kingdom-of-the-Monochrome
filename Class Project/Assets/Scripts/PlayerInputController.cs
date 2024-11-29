@@ -150,23 +150,178 @@ public class PlayerInputController : MonoBehaviour
          Vector3 movement = Vector3.zero;
         if((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && !Player.questDodge){ 
             movement += new Vector3(0,1,0);//up
-            a.ChangeAnimationState("Back");
+            if(Player.isRed && !Player.isBlue && !Player.isGreen)
+            {
+                a.ChangeAnimationState("Down R");
+            }
+            else if(Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Down RG");
+            }
+            else if(Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Down RB");
+            }
+            else if(!Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Down G");
+            }
+            else if(!Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Down GB");
+            }
+            else if(!Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Down B");
+            }
+            else if(Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Down RGB");
+            }
+            else
+            {
+                a.ChangeAnimationState("Back");   
+            }
         }
         if((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && !Player.questDodge){
             movement += new Vector3(0,-1,0);//down
-            a.ChangeAnimationState("Forward");
+            if(Player.isRed && !Player.isBlue && !Player.isGreen)
+            {
+                a.ChangeAnimationState("Up R");
+            }
+            else if(Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Up RG");
+            }
+            else if(Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Up RB");
+            }
+            else if(!Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Up G");
+            }
+            else if(!Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Up GB");
+            }
+            else if(!Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Up B");
+            }
+            else if(Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Up RGB");
+            }
+            else
+            {
+                a.ChangeAnimationState("Forward");
+            }
         }
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
             movement += new Vector3(-1,0,0);//left
-            a.ChangeAnimationState("Left");
+            if(Player.isRed && !Player.isBlue && !Player.isGreen)
+            {
+                a.ChangeAnimationState("Left R");
+            }
+            else if(Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Left RG");
+            }
+            else if(Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Left RB");
+            }
+            else if(!Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Left G");
+            }
+            else if(!Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Left GB");
+            }
+            else if(!Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Left B");
+            }
+            else if(Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Left RGB");
+            }
+            else
+            {
+                a.ChangeAnimationState("Left");
+            }
         }
         if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             movement += new Vector3(1,0,0);//right
-            a.ChangeAnimationState("Right");
+            if(Player.isRed && !Player.isBlue && !Player.isGreen)
+            {
+                a.ChangeAnimationState("Right R");
+            }
+            else if(Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Right RG");
+            }
+            else if(Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Right RB");
+            }
+            else if(!Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Right G");
+            }
+            else if(!Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Right GB");
+            }
+            else if(!Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Right B");
+            }
+            else if(Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Right RGB");
+            }
+            else
+            {
+                a.ChangeAnimationState("Right");
+            }
         }
         if(movement == Vector3.zero)//if not moving then just idle animation
         {
-            a.ChangeAnimationState("Idle");
+            if(Player.isRed && !Player.isBlue && !Player.isGreen)
+            {
+                a.ChangeAnimationState("Idle R");
+            }
+            else if(Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Idle RG");
+            }
+            else if(Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Idle RB");
+            }
+            else if(!Player.isRed && Player.isGreen && !Player.isBlue)
+            {
+                a.ChangeAnimationState("Idle G");
+            }
+            else if(!Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Idle GB");
+            }
+            else if(!Player.isRed && !Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Idle B");
+            }
+            else if(Player.isRed && Player.isGreen && Player.isBlue)
+            {
+                a.ChangeAnimationState("Idle RGB");
+            }
+            else
+            {
+                a.ChangeAnimationState("Idle");
+            }
         }
         
         player.Move(movement);
