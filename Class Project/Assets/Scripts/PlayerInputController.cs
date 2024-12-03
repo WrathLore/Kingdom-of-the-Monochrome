@@ -17,6 +17,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] PlayerAnimationStateChanger a;
     [SerializeField] GameObject optionsPanel;
     [SerializeField] GameObject finishGameCircle;
+    [SerializeField] TextMeshProUGUI hitPoints;
 
     // Update is called once per frame
     void Update()
@@ -120,6 +121,10 @@ public class PlayerInputController : MonoBehaviour
 
     public void PanelUpdate()
     {
+        if(hitPoints != null)
+        {
+            hitPoints.text = player.hit.ToString();
+        }
          if(welcome != null && !WelcomeScript.called)
         {
             if(Input.GetKey(KeyCode.C))

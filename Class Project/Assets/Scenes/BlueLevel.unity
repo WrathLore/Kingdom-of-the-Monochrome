@@ -6624,6 +6624,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 157034899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1474050831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3285233825034569983, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 967217763}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1474707507 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5823221990469328496, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
@@ -9391,6 +9402,10 @@ PrefabInstance:
       propertyPath: itemText
       value: 
       objectReference: {fileID: 2140800648}
+    - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
+      propertyPath: hitPoints
+      value: 
+      objectReference: {fileID: 1474050831}
     - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
       propertyPath: optionsPanel
       value: 

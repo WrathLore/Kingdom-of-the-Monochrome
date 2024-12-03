@@ -937,6 +937,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5384545691815029668, guid: f2926c18291b197419baa372fae070d0, type: 3}
   m_PrefabInstance: {fileID: 904103895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &998903559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3285233825034569983, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 4669011514058879371}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1007261961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2538,6 +2549,10 @@ PrefabInstance:
       propertyPath: itemText
       value: 
       objectReference: {fileID: 16316766}
+    - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
+      propertyPath: hitPoints
+      value: 
+      objectReference: {fileID: 998903559}
     - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
       propertyPath: optionsPanel
       value: 

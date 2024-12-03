@@ -2079,6 +2079,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 988465428}
     - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
+      propertyPath: hitPoints
+      value: 
+      objectReference: {fileID: 990861455}
+    - target: {fileID: 7330380721704809973, guid: cd72c9978c8ebbe43b76384e67612baf, type: 3}
       propertyPath: optionsPanel
       value: 
       objectReference: {fileID: 1338767505}
@@ -2112,6 +2116,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4683857065251825971, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
   m_PrefabInstance: {fileID: 903474092}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &990861455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3285233825034569983, guid: a9abddccb6589c843be933ed14e6bd85, type: 3}
+  m_PrefabInstance: {fileID: 903474092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1006975715
 PrefabInstance:
   m_ObjectHideFlags: 0

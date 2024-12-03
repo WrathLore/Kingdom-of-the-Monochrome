@@ -322,10 +322,11 @@ MonoBehaviour:
   questFailed: 0
   dodged: 0
   inTutorial: 0
-  hit: 0
+  hit: 5
   blocked: 0
   questItems: []
   weapon: {fileID: 0}
+  finalBossDefeat: 0
   progressTracker: 0
   progress: 0
   questInLevel: 0

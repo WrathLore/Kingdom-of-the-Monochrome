@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     int dodgeCount = 0;//use to track number of times dodge increased
     public bool inTutorial = false;
     public static string actionTaken = "Waiting for input...";
-    public int hit = 0;//reset at end of projectiles being launched
+    public int hit = 5;//reset at end of projectiles being launched
     public bool blocked = false;
     //c# does have bool values unlike with c
     [Header("Items")] //may or may not do static for these, may just have them show up starting as this in each area
@@ -129,8 +129,8 @@ public class Player : MonoBehaviour
 
     public void IncreaseHits()
     {
-        hit++;
-        if(hit > 3)
+        hit--;
+        if(hit == 0)
         {
             questFailed = true;
             Defeat();
@@ -351,7 +351,7 @@ public class Player : MonoBehaviour
         IncreaseProgress(prog, p);
         tutorialFight = tutorial;
         IncreaseDodge();
-        hit = 0;
+        hit = 5;
         if(!tutorial)
         {
             IncreaseColor(red,green,blue);//gain the colors
@@ -386,7 +386,7 @@ public class Player : MonoBehaviour
         inQuest = false;//once quest is over, not in quest anymore
         IncreaseProgress(prog, p);
         tutorialQuest = tutorial;
-        hit = 0;
+        hit = 5;
         if(!tutorial)//only want to update this stuff if not tutorial cause otherwise pain for just 2 cases
         {
             IncreaseColor(red,green,blue);
@@ -442,7 +442,7 @@ public class Player : MonoBehaviour
             onCircle = false;
             questFailed = false;
             isDead = false;//just in case I'll set these to false as well
-            hit = 0;
+            hit = 5;
             PlayerInputController.inFight = false;//if died in fight, make this false so that you can move again once level restarts
             actionTaken = "Waiting for input...";
             Creature.actionTaken = "Waiting for first move...";
