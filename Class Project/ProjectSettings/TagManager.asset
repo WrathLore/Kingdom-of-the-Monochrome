@@ -35,6 +35,7 @@ TagManager:
   - Statue
   - Bauble
   - Tower
+  - Fire
   layers:
   - Default
   - TransparentFX

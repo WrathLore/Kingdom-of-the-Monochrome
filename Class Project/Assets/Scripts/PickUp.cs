@@ -76,7 +76,7 @@ public class PickUp : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             onItem = true;//just need to do this
-            if(greenUnique != null && !player.blocked)
+            if(greenUnique != null && !player.blocked && unique)
             {
                 player.IncreaseHits();
             }
