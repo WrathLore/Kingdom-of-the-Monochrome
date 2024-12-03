@@ -1,12 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.PackageManager;
 //FOR FIGHT VS QUEST; maybe something like undertale where it automatically goes into the page for the fight
 //and in that case you can choose to either fight or to try to talk to them
 //and if you choose to talk, then you automatically go down the quest path and it exits the screen

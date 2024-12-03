@@ -4,7 +4,6 @@ using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.PackageManager;
 
 public class FightScript : MonoBehaviour
 {
